@@ -41,7 +41,7 @@ class CertificateService {
   }) async {
     try {
       // 使用Platform Channel调用原生iOS代码生成证书
-      final certificates = await this.generateCertificate(
+      final certificates = await CertificatePlatformChannel.generateCertificate(
         commonName: commonName,
         organization: organization,
         country: country,

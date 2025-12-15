@@ -45,11 +45,6 @@ Future<void> _requestPermissions() async {
     await Permission.notification.request();
   }
 
-  // 请求VPN权限（iOS）
-  if (await Permission.vpn.isDenied) {
-    await Permission.vpn.request();
-  }
-
   // VPN权限通常在iOS中通过其他方式处理，不需要特殊的权限
   // VPN配置会触发系统权限对话框
 }
