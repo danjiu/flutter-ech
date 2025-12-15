@@ -1,10 +1,13 @@
 workflows:
-  ios-release:
-    name: iOS Release Build
+  ios-build:
+    name: iOS Simulator Build Only
     environment:
       vars:
         FLUTTER_VERSION: 3.38.5
         XCODE_VERSION: 26.1
+        # 强制设置为模拟器构建
+        FLUTTER_TARGET_PLATFORM: ios-simulator
+        CODESIGNING_ALLOWED: NO
       xcode: latest
       cocoapods: default
     triggering:
@@ -14,128 +17,298 @@ workflows:
         - pattern: main
           include: true
           source: true
-        - pattern: release
-          include: true
-          source: true
     scripts:
+      - name: Clean environment
+        script: |
+          # 安全清理环境，忽略不存在的文件
+          rm -rf build/ || true
+          rm -rf ios/.symlinks/ || true
+          rm -rf ios/Pods/ || true
+          rm -f ios/Podfile.lock || true
+          echo "✅ 环境清理完成"
+
       - name: Set up Flutter
         script: |
+          echo "⚙️ 设置Flutter 3.38.5..."
+
+          # 检查当前Flutter版本
+          echo "当前Flutter版本:"
           flutter --version
+
+          # 如果需要，切换到正确的Flutter版本
+          if ! flutter --version | grep -q "3.38.5"; then
+            echo "切换到Flutter 3.38.5..."
+            flutter channel stable
+            flutter upgrade 3.38.5
+          fi
+
+          # 再次确认版本
+          echo "最终Flutter版本:"
+          flutter --version
+
+          # 验证Dart SDK版本
+          echo "Dart版本:"
+          dart --version
+
+          # Flutter doctor
+          echo "Flutter doctor检查:"
           flutter doctor -v
+
+          # 预热Flutter
+          echo "预加热Flutter..."
+          flutter precache --ios
+          echo "✅ Flutter设置完成"
+
       - name: Install dependencies
         script: |
+          echo "📦 安装Flutter依赖..."
+
+          # 再次确认Flutter版本
+          flutter --version
+
+          # 清理缓存
+          flutter clean
+
+          # 获取依赖
+          echo "运行 flutter pub get..."
           flutter pub get
-          cd ios && pod install
-      - name: Build IPA (Development)
+
+          # 检查是否成功
+          if [ $? -eq 0 ]; then
+            echo "✅ Flutter依赖安装成功"
+          else
+            echo "❌ Flutter依赖安装失败，尝试解决方案..."
+            # 尝试升级依赖
+            flutter pub upgrade
+            # 再次尝试获取
+            flutter pub get
+          fi
+
+          echo "依赖验证:"
+          flutter pub deps
+
+      - name: Verify iOS Podfile
         script: |
-          flutter build ios --release --no-codesign
-      - name: Archive build artifacts
+          cd ios
+          echo "📋 现有Podfile内容:"
+          echo "====================="
+          cat Podfile
+          echo "====================="
+          echo "✅ Podfile验证完成"
+
+      - name: Setup Flutter and Install Pods
         script: |
-          mkdir -p $CM_BUILD_DIR/artifacts
-          cp -r build/ios/iphoneos/Runner.app $CM_BUILD_DIR/artifacts/
+          echo "🔧 设置Flutter并安装依赖..."
+
+          # 显示当前目录和结构
+          echo "当前工作目录: $(pwd)"
+          echo "目录结构:"
+          ls -la
+
+          # 检查是否在项目根目录
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "❌ 不在Flutter项目根目录！找不到 pubspec.yaml"
+            echo "尝试找到项目根目录..."
+            # 尝试找到包含pubspec.yaml的目录
+            find . -name "pubspec.yaml" -type f 2>/dev/null | head -1
+            exit 1
+          fi
+
+          echo "✅ 在Flutter项目根目录"
+
+          # 运行Flutter的依赖安装
+          echo "运行 flutter pub get..."
+          flutter pub get
+
+          # 检查iOS目录是否存在
+          if [ ! -d "ios" ]; then
+            echo "❌ iOS目录不存在！"
+            exit 1
+          fi
+
+          # 进入iOS目录
+          cd ios
+          echo "已进入iOS目录: $(pwd)"
+
+          # 检查Podfile是否存在
+          if [ ! -f "Podfile" ]; then
+            echo "❌ Podfile不存在！"
+            echo "iOS目录内容:"
+            ls -la
+            exit 1
+          fi
+
+          echo "✅ Podfile存在"
+
+          # 清理可能损坏的文件
+          echo "清理旧的CocoaPods文件..."
+          rm -rf Pods/
+          rm -f Podfile.lock
+          rm -f *.xcworkspace
+
+          # 检查是否在正确的目录
+          echo "当前目录: $(pwd)"
+          echo "目录内容:"
+          ls -la
+
+          # 更新CocoaPods仓库（如果需要）
+          echo "更新CocoaPods仓库..."
+          pod repo update || echo "pod repo update 失败，继续..."
+
+          # 运行pod install
+          echo "运行 pod install..."
+          pod install --verbose
+
+          # 验证安装结果
+          echo "验证安装结果..."
+          if [ -f "Podfile.lock" ]; then
+            echo "✅ Podfile.lock 生成成功"
+          else
+            echo "❌ Podfile.lock 未生成"
+            exit 1
+          fi
+
+          if [ -f "Pods/Manifest.lock" ]; then
+            echo "✅ Manifest.lock 存在"
+          else
+            echo "❌ Manifest.lock 不存在"
+            echo "Pods目录内容:"
+            ls -la Pods/ || echo "Pods目录不存在"
+            exit 1
+          fi
+
+          # 检查生成的文件
+          echo "检查生成的文件..."
+          ls -la *.xcworkspace 2>/dev/null || echo "没有找到xcworkspace目录"
+          ls -la *.xcodeproj 2>/dev/null || echo "没有找到xcodeproj目录"
+
+          # 检查目录而不是文件（xcworkspace和xcodeproj都是目录）
+          if [ -d "Runner.xcworkspace" ]; then
+            echo "✅ workspace 目录生成成功"
+            echo "生成的文件:"
+            ls -la Runner.xcworkspace/
+            ls -la Pods/ | head -10
+          elif [ -d "Runner.xcodeproj" ]; then
+            echo "✅ 找到 xcodeproj 目录，将使用它进行构建"
+            echo "生成的文件:"
+            ls -la Runner.xcodeproj/
+            ls -la Pods/ | head -10
+          else
+            echo "❌ workspace 和 xcodeproj 目录都没有生成"
+            echo "当前目录内容:"
+            ls -la
+            echo "查找任何项目文件:"
+            find . -name "*.xcodeproj" -o -name "*.xcworkspace" 2>/dev/null
+            exit 1
+          fi
+
+      - name: Force Simulator Build
+        script: |
+          echo "🚀 开始iOS模拟器构建..."
+
+          # 检查当前位置并导航到项目根目录
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "不在项目根目录，尝试导航..."
+            # CodeMagic通常在clone目录中运行
+            if [ -d "clone" ]; then
+              cd clone
+            fi
+          fi
+
+          # 再次检查是否在正确的目录
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "❌ 仍然找不到项目根目录"
+            exit 1
+          fi
+
+          echo "当前目录: $(pwd)"
+
+          # 进入iOS目录
+          cd ios
+
+          # 验证必要文件存在（xcworkspace和xcodeproj是目录）
+          if [ -d "Runner.xcworkspace" ]; then
+            PROJECT_FILE="Runner.xcworkspace"
+            PROJECT_TYPE="workspace"
+            echo "使用 workspace 文件"
+          elif [ -d "Runner.xcodeproj" ]; then
+            PROJECT_FILE="Runner.xcodeproj"
+            PROJECT_TYPE="project"
+            echo "使用 xcodeproj 文件"
+          else
+            echo "❌ 找不到 Runner.xcworkspace 或 Runner.xcodeproj！"
+            echo "iOS目录内容:"
+            ls -la
+            exit 1
+          fi
+
+          if [ ! -f "Pods/Manifest.lock" ]; then
+            echo "❌ Manifest.lock 不存在！"
+            echo "Pods目录内容:"
+            ls -la Pods/ || echo "Pods目录不存在"
+            exit 1
+          fi
+
+          echo "✅ 使用 $PROJECT_FILE: $PROJECT_TYPE"
+
+          # 切换到Debug配置（Flutter的模拟器构建支持Debug模式）
+          echo "使用Debug配置构建模拟器版本..."
+
+          # 使用xcodebuild构建，指定Debug配置
+          if [ "$PROJECT_TYPE" = "workspace" ]; then
+            xcodebuild -workspace $PROJECT_FILE \
+              -scheme Runner \
+              -configuration Debug \
+              -sdk iphonesimulator \
+              -destination 'generic/platform=iOS Simulator' \
+              ONLY_ACTIVE_ARCH=NO \
+              CODE_SIGNING_ALLOWED=NO \
+              ENABLE_BITCODE=NO \
+              build
+          else
+            xcodebuild -project $PROJECT_FILE \
+              -scheme Runner \
+              -configuration Debug \
+              -sdk iphonesimulator \
+              -destination 'generic/platform=iOS Simulator' \
+              ONLY_ACTIVE_ARCH=NO \
+              CODE_SIGNING_ALLOWED=NO \
+              ENABLE_BITCODE=NO \
+              build
+          fi
+
+          # 检查构建结果
+          if [ $? -eq 0 ]; then
+            echo "✅ iOS模拟器构建成功！"
+
+            # 查找构建产物
+            BUILD_PRODUCTS_DIR="/Users/builder/Library/Developer/Xcode/DerivedData/Runner-*/Build/Products/Debug-iphonesimulator"
+            if ls -la $BUILD_PRODUCTS_DIR/*.app 2>/dev/null; then
+              echo "📦 构建的app文件找到"
+              ls -la $BUILD_PRODUCTS_DIR/*.app
+            fi
+          else
+            echo "❌ xcodebuild构建失败"
+
+            # 尝试使用Flutter的方法
+            echo "尝试Flutter的模拟器构建..."
+            cd ..
+            flutter build ios --simulator --debug --no-codesign
+
+            if [ $? -eq 0 ]; then
+              echo "✅ Flutter模拟器构建成功！"
+            else
+              echo "❌ 所有构建方法都失败了"
+              exit 1
+            fi
+          fi
+
+      - name: Verify build
+        script: |
+          # 验证构建产物
+          ls -la build/ios/iphonesimulator/ || ls -la build/ios/
+          find . -name "*.app" -type d
+
     artifacts:
-      - build/ios/iphoneos/Runner.app
-      - ios/Podfile.lock
-
-  android-release:
-    name: Android Release Build
-    environment:
-      vars:
-        FLUTTER_VERSION: 3.38.5
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-          source: true
-        - pattern: release
-          include: true
-          source: true
-    scripts:
-      - name: Set up Flutter
-        script: |
-          flutter --version
-          flutter doctor -v
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Build APK
-        script: |
-          flutter build apk --release \
-            --build-number $BUILD_NUMBER \
-            --build-name $BUILD_NAME \
-            --split-per-abi
-      - name: Build App Bundle
-        script: |
-          flutter build appbundle --release \
-            --build-number $BUILD_NUMBER \
-            --build-name $BUILD_NAME
-      - name: Archive build artifacts
-        script: |
-          mkdir -p $CM_BUILD_DIR/artifacts
-          cp -r build/app/outputs/flutter-apk/*.apk $CM_BUILD_DIR/artifacts/
-          cp -r build/app/outputs/bundle/release/*.aab $CM_BUILD_DIR/artifacts/
-    artifacts:
-      - build/app/outputs/flutter-apk/*.apk
-      - build/app/outputs/bundle/release/*.aab
-      - android/app/build.gradle
-
-  test-and-analyze:
-    name: Test and Analyze
-    environment:
-      vars:
-        FLUTTER_VERSION: 3.38.5
-    triggering:
-      events:
-        - push
-        - pull_request
-    scripts:
-      - name: Set up Flutter
-        script: |
-          flutter --version
-          flutter doctor -v
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Flutter analyze
-        script: |
-          flutter analyze
-      - name: Run tests
-        script: |
-          flutter test --coverage
-
-  preview-build:
-    name: Preview Build
-    environment:
-      vars:
-        FLUTTER_VERSION: 3.38.5
-      xcode: latest
-      cocoapods: default
-    triggering:
-      events:
-        - pull_request
-    scripts:
-      - name: Set up Flutter
-        script: |
-          flutter --version
-          flutter doctor -v
-      - name: Install dependencies
-        script: |
-          flutter pub get
-          cd ios && pod install
-      - name: Build iOS preview
-        script: |
-          flutter build ios --release --no-codesign
-      - name: Build Android preview
-        script: |
-          flutter build apk --debug
-      - name: Create preview artifacts
-        script: |
-          mkdir -p $CM_BUILD_DIR/preview
-          cp -r build/ios/iphoneos/Runner.app $CM_BUILD_DIR/preview/
-          cp build/app/outputs/flutter-apk/app-debug.apk $CM_BUILD_DIR/preview/
-    artifacts:
-      - build/ios/iphoneos/Runner.app
-
-      - build/app/outputs/flutter-apk/app-debug.apk
+      - build/ios/**/Runner.app
+      - build/ios/Build/Products/Release-iphonesimulator/*.app

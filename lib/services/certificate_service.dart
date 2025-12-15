@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -5,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_vpn/flutter_vpn.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:logger/logger.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// 证书管理服务
 /// 处理iOS VPN应用的证书安装和管理
@@ -39,7 +41,7 @@ class CertificateService {
   }) async {
     try {
       // 使用Platform Channel调用原生iOS代码生成证书
-      final certificates = await CertificatePlatformChannel.generateCertificate(
+      final certificates = await this.generateCertificate(
         commonName: commonName,
         organization: organization,
         country: country,

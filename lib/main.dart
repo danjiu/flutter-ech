@@ -30,8 +30,10 @@ void main() async {
 }
 
 Future<void> _requestPermissions() async {
-  // 请求网络状态权限
-  await Permission.network.request();
+  // 请求位置权限（用于网络状态判断）
+  if (await Permission.locationWhenInUse.isDenied) {
+    await Permission.locationWhenInUse.request();
+  }
 
   // 请求存储权限（Android）
   if (await Permission.storage.isDenied) {
@@ -42,6 +44,9 @@ Future<void> _requestPermissions() async {
   if (await Permission.notification.isDenied) {
     await Permission.notification.request();
   }
+
+  // VPN权限通常在iOS中通过其他方式处理，不需要特殊的权限
+  // VPN配置会触发系统权限对话框
 }
 
 Future<void> _initializeServices() async {
@@ -80,7 +85,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -112,7 +117,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: Colors.grey[800],
           elevation: 2,
           shape: RoundedRectangleBorder(

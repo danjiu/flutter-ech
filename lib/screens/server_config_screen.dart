@@ -26,6 +26,9 @@ class _ServerConfigScreenState extends State<ServerConfigScreen> {
   RoutingMode _routingMode = RoutingMode.global;
   bool _isAdvancedExpanded = false;
 
+  // 是否为编辑模式
+  bool get isEditing => widget.server != null;
+
   @override
   void initState() {
     super.initState();

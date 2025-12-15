@@ -10,16 +10,33 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  # List Flutter dependencies manually to avoid compatibility issues
-  # Note: This is a simplified setup. Some plugins might require additional configuration.
-  pod 'Firebase/Core', '~> 10.0.0'  # Example placeholder
+  # 即使没有原生依赖，也要确保workspace被创建
+  # 这可以通过添加一个最小的依赖来实现
+  # 如果有Flutter插件需要原生支持，Flutter会在这里添加
+end
 
-  # Flutter plugins from pubspec.yaml
-  # Uncomment and configure as needed:
-  # pod 'flutter_vpn'
-  # pod 'permission_handler'
-  # pod 'flutter_secure_storage'
-  # pod 'path_provider'
-  # pod 'shared_preferences'
-  # pod 'provider'
+# 确保workspace被创建
+install! 'cocoapods', :deterministic_uuids => false
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      # 模拟器构建不需要代码签名
+      config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      config.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
+      config.build_settings['PROVISIONING_PROFILE_SPECIFIER'] = ''
+
+      # 优化构建设置
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+
+      # 修复架构问题
+      config.build_settings['VALID_ARCHS'] = 'x86_64 arm64'
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+
+      # 禁用一些警告
+      config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+    end
+  end
 end

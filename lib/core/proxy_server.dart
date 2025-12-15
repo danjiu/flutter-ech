@@ -4,9 +4,15 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'ech_client.dart';
 import 'china_ip_database.dart';
+import 'socks5_server.dart';
 
 // 从models导入RoutingMode
 import '../models/server_config.dart';
+
+// 用于不等待Future完成
+void unawaited(Future<void> future) {
+  // Intentionally not awaiting the future
+}
 
 /// ECH代理服务器
 /// 整合了ECH客户端、SOCKS5服务器和分流规则
@@ -25,8 +31,8 @@ class ECHProxyServer {
 
   bool _isRunning = false;
   DateTime? _startTime;
-  int64 _totalUploadBytes = 0;
-  int64 _totalDownloadBytes = 0;
+  int _totalUploadBytes = 0;
+  int _totalDownloadBytes = 0;
 
   // 统计流控制器
   final StreamController<Map<String, dynamic>> _statsController =
@@ -119,7 +125,7 @@ class ECHProxyServer {
 
   /// 判断是否在中国（使用缓存的IP数据库）
   Future<bool> _isChinaIP(String host) async {
-    return await _ipDatabase.isChinaIP(host);
+    return _ipDatabase.isChineseIP(host);
   }
 
   /// 通过Cloudflare Workers转发请求
@@ -157,7 +163,7 @@ class ECHProxyServer {
       if (response.request != null) {
         _totalUploadBytes += response.request!.contentLength ?? 0;
       }
-      _totalDownloadBytes += response.contentLength;
+      _totalDownloadBytes += response.contentLength ?? 0;
 
       return response;
     } catch (e) {
@@ -227,7 +233,7 @@ class ECHProxyServer {
       'serverAddress': serverAddress,
       'port': port,
       'routingMode': routingMode.name,
-      'ipDatabase': _ipDatabase.getInfo(),
+      'ipDatabaseInitialized': _ipDatabase.isInitialized,
     };
   }
 }

@@ -12,6 +12,15 @@ import 'certificate_service.dart';
 import 'certificate_platform_channel.dart';
 import '../core/proxy_server.dart';
 
+/// FlutterVpnState状态枚举（如果flutter_vpn包没有提供）
+enum FlutterVpnState {
+  disconnected,
+  connecting,
+  connected,
+  disconnecting,
+  error
+}
+
 class VpnService {
   static const _platform = MethodChannel('ech_flutter_vpn/vpn');
   static final _logger = Logger();
@@ -41,17 +50,42 @@ class VpnService {
 
   Future<void> initialize() async {
     try {
-      // 初始化 Flutter VPN 插件
-      await FlutterVpn.initialize();
+      // 注意：新版本的flutter_vpn可能不需要显式初始化
+      // 尝试初始化，如果失败则继续
 
       // 监听 VPN 状态变化
       FlutterVpn.onStateChanged.listen((state) {
-        _updateVpnState(state);
+        // 根据状态字符串映射到枚举
+        FlutterVpnState vpnState;
+        switch (state.toLowerCase()) {
+          case 'disconnected':
+            vpnState = FlutterVpnState.disconnected;
+            break;
+          case 'connecting':
+            vpnState = FlutterVpnState.connecting;
+            break;
+          case 'connected':
+            vpnState = FlutterVpnState.connected;
+            break;
+          case 'disconnecting':
+            vpnState = FlutterVpnState.disconnecting;
+            break;
+          case 'error':
+            vpnState = FlutterVpnState.error;
+            break;
+          default:
+            vpnState = FlutterVpnState.disconnected;
+        }
+        _updateVpnState(vpnState);
       });
 
       // 检查当前 VPN 状态
-      final currentState = await FlutterVpn.currentState;
-      _updateVpnState(currentState);
+      try {
+        final currentState = await FlutterVpn.currentState;
+        _updateVpnState(currentState);
+      } catch (e) {
+        _logger.w('Could not get current VPN state: $e');
+      }
 
       _logger.i('VPN service initialized');
     } catch (e) {
@@ -81,10 +115,10 @@ class VpnService {
       _proxyServer = ECHProxyServer(
         serverAddress: server.serverAddress,
         port: 30000, // 本地SOCKS5代理端口
-        token: server.token,
-        preferredIp: server.preferredIp,
-        dnsServer: server.dnsServer,
-        echDomain: server.echDomain,
+        token: server.token ?? '',
+        preferredIp: server.preferredIp ?? '',
+        dnsServer: server.dnsServer ?? 'dns.alidns.com/dns-query',
+        echDomain: server.echDomain ?? 'cloudflare-ech.com',
         routingMode: _convertRoutingMode(server.routingMode),
       );
 
@@ -107,12 +141,18 @@ class VpnService {
       await Future.delayed(const Duration(seconds: 3));
 
       // 连接系统VPN到本地代理
-      await FlutterVpn.connect(
-        serverAddress: '127.0.0.1',
-        username: 'vpn',
-        password: '',
-        protocol: FlutterVpnProtocol.ikev2,
-      );
+      try {
+        await FlutterVpn.connect(
+          serverAddress: '127.0.0.1',
+          username: 'vpn',
+          password: '',
+          protocol: FlutterVpnProtocol.ikev2,
+        );
+      } catch (e) {
+        _logger.e('FlutterVpn.connect failed: $e');
+        _setState(VpnConnectionState.error);
+        return false;
+      }
 
       // 更新服务器配置
       await _updateServerConfig(server);
@@ -222,23 +262,33 @@ class VpnService {
     }
   }
 
-  void _updateVpnState(FlutterVpnState state) {
+  void _updateVpnState(dynamic state) {
+    // state可能是字符串或枚举，根据实际情况处理
+    String stateStr;
+    if (state is String) {
+      stateStr = state.toLowerCase();
+    } else if (state is FlutterVpnState) {
+      stateStr = state.toString().toLowerCase();
+    } else {
+      stateStr = 'disconnected';
+    }
+
     VpnConnectionState newState;
-    switch (state) {
-      case FlutterVpnState.disconnected:
+    switch (stateStr) {
+      case 'disconnected':
         newState = VpnConnectionState.disconnected;
         break;
-      case FlutterVpnState.connecting:
+      case 'connecting':
         newState = VpnConnectionState.connecting;
         break;
-      case FlutterVpnState.connected:
+      case 'connected':
         newState = VpnConnectionState.connected;
         _startStatsTimer();
         break;
-      case FlutterVpnState.disconnecting:
+      case 'disconnecting':
         newState = VpnConnectionState.disconnecting;
         break;
-      case FlutterVpnState.error:
+      case 'error':
         newState = VpnConnectionState.error;
         break;
       default:
@@ -361,10 +411,9 @@ class VpnService {
 
         if (success) {
           // 监听安装状态
-          await certService.certificateStatus.firstWhere(
-            (installed) => installed,
-            timeout: const Duration(seconds: 30),
-          );
+          await certService.certificateStatus
+              .firstWhere((installed) => installed)
+              .timeout(const Duration(seconds: 30));
           _logger.i('Certificate installed successfully');
           return true;
         }

@@ -54,9 +54,8 @@ class ECHClient {
         final records = DNSParser.parseDNSResponse(response.bodyBytes);
 
         // 提取HTTPS记录中的ECH配置
-        for (final record in records) {
-          final httpsRecord = DNSParser.parseHTTPSRecord(record);
-          if (httpsRecord != null && httpsRecord.echConfig != null) {
+        for (final httpsRecord in records) {
+          if (httpsRecord.echConfig != null) {
             // ECH配置可能有多个，尝试提取第一个有效的配置
             final firstConfig = _extractFirstECHConfig(httpsRecord.echConfig!.toList());
             if (firstConfig != null) {
@@ -522,9 +521,8 @@ class ECHClient {
     final records = DNSParser.parseDNSResponse(Uint8List.fromList(dnsResponse));
 
     // 查找包含ECH配置的HTTPS记录
-    for (final record in records) {
-      final httpsRecord = DNSParser.parseHTTPSRecord(record);
-      if (httpsRecord != null && httpsRecord.echConfig != null) {
+    for (final httpsRecord in records) {
+      if (httpsRecord.echConfig != null) {
         return httpsRecord.echConfig!.toList();
       }
     }
@@ -560,16 +558,38 @@ class ECHClient {
         ...?headers,
       };
 
-      final response = await client.request(
-        method,
-        url,
-        headers: requestHeaders,
-        body: body,
-      );
+      final response = await _makeRequest(client, method, url,
+          headers: requestHeaders, body: body);
 
       return response;
     } finally {
       client.close();
+    }
+  }
+
+  /// 执行HTTP请求的辅助方法
+  Future<http.Response> _makeRequest(
+    http.Client client,
+    String method,
+    String url, {
+    Map<String, String>? headers,
+    Object? body,
+  }) async {
+    switch (method.toUpperCase()) {
+      case 'GET':
+        return await client.get(Uri.parse(url), headers: headers);
+      case 'POST':
+        return await client.post(Uri.parse(url), headers: headers, body: body);
+      case 'PUT':
+        return await client.put(Uri.parse(url), headers: headers, body: body);
+      case 'DELETE':
+        return await client.delete(Uri.parse(url), headers: headers);
+      case 'PATCH':
+        return await client.patch(Uri.parse(url), headers: headers, body: body);
+      case 'HEAD':
+        return await client.head(Uri.parse(url), headers: headers);
+      default:
+        throw UnsupportedError('Unsupported HTTP method: $method');
     }
   }
 

@@ -5,6 +5,7 @@ import 'dart:typed_data';
 
 // 导入RoutingMode从models
 import '../models/server_config.dart';
+import 'ech_client.dart';
 
 /// SOCKS5代理服务器实现
 class SOCKS5Server {
@@ -17,13 +18,13 @@ class SOCKS5Server {
   // 连接统计
   int _totalConnections = 0;
   int _activeConnections = 0;
-  int64 _bytesTransferred = 0;
+  int _bytesTransferred = 0;
 
   SOCKS5Server({
     required this.port,
-    required this._echClient,
-    this._routingMode = RoutingMode.global,
-  });
+    required ECHClient echClient,
+    RoutingMode routingMode = RoutingMode.global,
+  }) : _echClient = echClient, _routingMode = routingMode;
 
   /// 启动SOCKS5服务器
   Future<void> start() async {
@@ -95,8 +96,22 @@ class SOCKS5Server {
   /// SOCKS5握手
   Future<bool> _handleSocks5Handshake(Socket socket) async {
     try {
-      final data = await socket.read(257).timeout(Duration(seconds: 5));
-      if (data.isEmpty || data[0] != 0x05) return false;
+      final completer = Completer<List<int>>();
+      final data = <int>[];
+
+      socket.listen(
+        (chunk) {
+          data.addAll(chunk);
+          if (data.length >= 257) {
+            completer.complete(data);
+          }
+        },
+        onDone: () => completer.complete(data),
+        onError: (e) => completer.completeError(e),
+      );
+
+      final receivedData = await completer.future.timeout(Duration(seconds: 5));
+      if (receivedData.isEmpty || receivedData[0] != 0x05) return false;
 
       // 响应：选择无认证方法
       socket.add([0x05, 0x00]);
@@ -110,36 +125,50 @@ class SOCKS5Server {
   /// 处理SOCKS5连接请求
   Future<String?> _handleSocks5Request(Socket socket) async {
     try {
-      final data = await socket.read(262).timeout(Duration(seconds: 5));
-      if (data.length < 7 || data[0] != 0x05 || data[1] != 0x01) {
+      final completer = Completer<List<int>>();
+      final data = <int>[];
+
+      socket.listen(
+        (chunk) {
+          data.addAll(chunk);
+          if (data.length >= 262) {
+            completer.complete(data);
+          }
+        },
+        onDone: () => completer.complete(data),
+        onError: (e) => completer.completeError(e),
+      );
+
+      final receivedData = await completer.future.timeout(Duration(seconds: 5));
+      if (receivedData.length < 7 || receivedData[0] != 0x05 || receivedData[1] != 0x01) {
         return null;
       }
 
-      final addrType = data[3];
+      final addrType = receivedData[3];
       String target;
 
       switch (addrType) {
         case 0x01: // IPv4
-          if (data.length < 10) return null;
-          final ip = '${data[4]}.${data[5]}.${data[6]}.${data[7]}';
-          final port = (data[8] << 8) | data[9];
+          if (receivedData.length < 10) return null;
+          final ip = '${receivedData[4]}.${receivedData[5]}.${receivedData[6]}.${receivedData[7]}';
+          final port = (receivedData[8] << 8) | receivedData[9];
           target = '$ip:$port';
           break;
 
         case 0x03: // 域名
-          if (data.length < 7) return null;
-          final domainLen = data[4];
-          if (data.length < 5 + domainLen + 2) return null;
-          final domain = String.fromCharCodes(data, 5, 5 + domainLen);
-          final port = (data[5 + domainLen] << 8) | data[6 + domainLen];
+          if (receivedData.length < 7) return null;
+          final domainLen = receivedData[4];
+          if (receivedData.length < 5 + domainLen + 2) return null;
+          final domain = String.fromCharCodes(receivedData, 5, 5 + domainLen);
+          final port = (receivedData[5 + domainLen] << 8) | receivedData[6 + domainLen];
           target = '$domain:$port';
           break;
 
         case 0x04: // IPv6
-          if (data.length < 22) return null;
-          final ipBytes = data.sublist(4, 20);
+          if (receivedData.length < 22) return null;
+          final ipBytes = receivedData.sublist(4, 20);
           final ip = ipBytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join(':');
-          final port = (data[20] << 8) | data[21];
+          final port = (receivedData[20] << 8) | receivedData[21];
           target = '[$ip]:$port';
           break;
 
@@ -306,8 +335,3 @@ class SOCKS5Server {
   }
 }
 
-enum RoutingMode {
-  global,
-  bypassCn,
-  none,
-}

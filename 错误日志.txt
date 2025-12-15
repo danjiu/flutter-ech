@@ -1,0 +1,1170 @@
+🚀 开始iOS模拟器构建...
+当前目录: /Users/builder/clone
+使用 workspace 文件
+✅ 使用 Runner.xcworkspace: workspace
+使用Debug配置构建模拟器版本...
+Command line invocation:
+    /Applications/Xcode-26.1.app/Contents/Developer/usr/bin/xcodebuild -workspace Runner.xcworkspace -scheme Runner -configuration Debug -sdk iphonesimulator -destination "generic/platform=iOS Simulator" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO ENABLE_BITCODE=NO build
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    ENABLE_BITCODE = NO
+    ONLY_ACTIVE_ARCH = NO
+    SDKROOT = iphonesimulator26.1
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'Runner' in project 'Runner' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x objective-c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/builder/clone/ios/Runner/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch x86_64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch x86_64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x objective-c -c /dev/null
+
+Build description signature: 2dd0f792348665057cc415c3e3bc9aa4
+Build description path: /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/XCBuildData/2dd0f792348665057cc415c3e3bc9aa4.xcbuilddata
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+
+ClangStatCache /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk /Users/builder/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.1-23B77-3db4f1cf0fd34ab1c3d11b67df3df23b.sdkstatcache
+    cd /Users/builder/clone/ios
+    /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -o /Users/builder/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.1-23B77-3db4f1cf0fd34ab1c3d11b67df3df23b.sdkstatcache
+
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner-18c1723432283e0cc55f10a6dcfd9e02-VFS-iphonesimulator/all-product-headers.yaml
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner-18c1723432283e0cc55f10a6dcfd9e02-VFS-iphonesimulator/all-product-headers.yaml
+
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-3B06AD1E1E4923F5004D2608.sh (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-3B06AD1E1E4923F5004D2608.sh
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-26ABA449600D0E4E53158486.sh (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-26ABA449600D0E4E53158486.sh
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibPath-normal-x86_64.txt (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibPath-normal-x86_64.txt
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibPath-normal-arm64.txt (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-non-framework-target-headers.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyStaticMetadataFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyMetadataFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibInstallName-normal-arm64.txt (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibInstallName-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibInstallName-normal-x86_64.txt (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-DebugDylibInstallName-normal-x86_64.txt
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+-target x86_64-apple-ios13.0-simulator '-std=gnu99' -fobjc-arc -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' '-DOBJC_OLD_DISPATCH_PROTOTYPES=0' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -fasm-blocks -g '-fobjc-abi-version=2' -fobjc-legacy-dispatch -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/x86_64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/x86_64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner_const_extract_protocols.json (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.LinkFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.LinkFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.SwiftConstValuesFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner-OutputFileMap.json (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.SwiftFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.SwiftFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/7187679823f38a2a940e0043cdf9d637-common-args.resp (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/7187679823f38a2a940e0043cdf9d637-common-args.resp
+-target x86_64-apple-ios13.0-simulator '-std=gnu99' -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -fasm-blocks -g -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/x86_64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/x86_64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+-target arm64-apple-ios13.0-simulator '-std=gnu99' -fobjc-arc -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' '-DOBJC_OLD_DISPATCH_PROTOTYPES=0' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -g '-fobjc-abi-version=2' -fobjc-legacy-dispatch -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner_const_extract_protocols.json (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftConstValuesFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.LinkFileList (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.LinkFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner-OutputFileMap.json (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/7187679823f38a2a940e0043cdf9d637-common-args.resp (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/7187679823f38a2a940e0043cdf9d637-common-args.resp
+-target arm64-apple-ios13.0-simulator '-std=gnu99' -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -g -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+
+MkDir /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/Runner.app (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    /bin/mkdir -p /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/Runner.app
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/Runner_vers.c (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/Runner_vers.c
+
+PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-26ABA449600D0E4E53158486.sh (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    /bin/sh -c /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-26ABA449600D0E4E53158486.sh
+
+PhaseScriptExecution Run\ Script /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    export ACTION\=build
+    export AD_HOC_CODE_SIGNING_ALLOWED\=YES
+    export AGGREGATE_TRACKED_DOMAINS\=YES
+    export ALLOW_BUILD_REQUEST_OVERRIDES\=NO
+    export ALLOW_TARGET_PLATFORM_SPECIALIZATION\=NO
+    export ALTERNATE_GROUP\=staff
+    export ALTERNATE_MODE\=u+w,go-w,a+rX
+    export ALTERNATE_OWNER\=builder
+    export ALTERNATIVE_DISTRIBUTION_WEB\=NO
+    export ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES\=NO
+    export ALWAYS_SEARCH_USER_PATHS\=NO
+    export ALWAYS_USE_SEPARATE_HEADERMAPS\=NO
+    export ANDROID_DEPLOYMENT_TARGET\=21.0
+    export APPLICATION_EXTENSION_API_ONLY\=NO
+    export APPLY_RULES_IN_COPY_FILES\=NO
+    export APPLY_RULES_IN_COPY_HEADERS\=NO
+    export APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING\=YES
+    export ARCHS\=arm64\ x86_64
+    export ARCHS_STANDARD\=arm64\ x86_64
+    export ARCHS_STANDARD_32_64_BIT\=arm64\ x86_64
+    export ARCHS_STANDARD_64_BIT\=arm64\ x86_64
+    export ARCHS_STANDARD_INCLUDING_64_BIT\=arm64\ x86_64
+    export ARCHS_UNIVERSAL_IPHONE_OS\=arm64\ x86_64
+    export ASSETCATALOG_COMPILER_APPICON_NAME\=AppIcon
+    export ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS\=YES
+    export AUTOMATICALLY_MERGE_DEPENDENCIES\=NO
+    export AUTOMATION_APPLE_EVENTS\=NO
+    export AVAILABLE_PLATFORMS\=android\ appletvos\ appletvsimulator\ driverkit\ iphoneos\ iphonesimulator\ macosx\ qnx\ watchos\ watchsimulator\ webassembly\ xros\ xrsimulator
+    export BUILD_ACTIVE_RESOURCES_ONLY\=NO
+    export BUILD_COMPONENTS\=headers\ build
+    export BUILD_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+    export BUILD_LIBRARY_FOR_DISTRIBUTION\=NO
+    export BUILD_ROOT\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+    export BUILD_STYLE\=
+    export BUILD_VARIANTS\=normal
+    export BUILT_PRODUCTS_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+    export BUNDLE_CONTENTS_FOLDER_PATH_deep\=Contents/
+    export BUNDLE_EXECUTABLE_FOLDER_NAME_deep\=MacOS
+    export BUNDLE_EXTENSIONS_FOLDER_PATH\=Extensions
+    export BUNDLE_FORMAT\=shallow
+    export BUNDLE_FRAMEWORKS_FOLDER_PATH\=Frameworks
+    export BUNDLE_PLUGINS_FOLDER_PATH\=PlugIns
+    export BUNDLE_PRIVATE_HEADERS_FOLDER_PATH\=PrivateHeaders
+    export BUNDLE_PUBLIC_HEADERS_FOLDER_PATH\=Headers
+    export CACHE_ROOT\=/var/folders/w2/rrf5p87d1bbfyphxc7jdnyvh0000gn/C/com.apple.DeveloperTools/26.1.1-17B100/Xcode
+    export CCHROOT\=/var/folders/w2/rrf5p87d1bbfyphxc7jdnyvh0000gn/C/com.apple.DeveloperTools/26.1.1-17B100/Xcode
+    export CHMOD\=/bin/chmod
+    export CHOWN\=/usr/sbin/chown
+    export CLANG_ANALYZER_NONNULL\=YES
+    export CLANG_CACHE_FINE_GRAINED_OUTPUTS\=YES
+    export CLANG_CXX_LANGUAGE_STANDARD\=gnu++0x
+    export CLANG_CXX_LIBRARY\=libc++
+    export CLANG_ENABLE_EXPLICIT_MODULES\=YES
+    export CLANG_ENABLE_MODULES\=YES
+    export CLANG_ENABLE_OBJC_ARC\=YES
+    export CLANG_MODULES_BUILD_SESSION_FILE\=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation
+    export CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING\=YES
+    export CLANG_WARN_BOOL_CONVERSION\=YES
+    export CLANG_WARN_COMMA\=YES
+    export CLANG_WARN_CONSTANT_CONVERSION\=YES
+    export CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS\=YES
+    export CLANG_WARN_DIRECT_OBJC_ISA_USAGE\=YES_ERROR
+    export CLANG_WARN_EMPTY_BODY\=YES
+    export CLANG_WARN_ENUM_CONVERSION\=YES
+    export CLANG_WARN_INFINITE_RECURSION\=YES
+    export CLANG_WARN_INT_CONVERSION\=YES
+    export CLANG_WARN_NON_LITERAL_NULL_CONVERSION\=YES
+    export CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF\=YES
+    export CLANG_WARN_OBJC_LITERAL_CONVERSION\=YES
+    export CLANG_WARN_OBJC_ROOT_CLASS\=YES_ERROR
+    export CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER\=NO
+    export CLANG_WARN_RANGE_LOOP_ANALYSIS\=YES
+    export CLANG_WARN_STRICT_PROTOTYPES\=YES
+    export CLANG_WARN_SUSPICIOUS_MOVE\=YES
+    export CLANG_WARN_UNREACHABLE_CODE\=YES
+    export CLANG_WARN__DUPLICATE_METHOD_MATCH\=YES
+    export CLASS_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/JavaClasses
+    export CLEAN_PRECOMPS\=YES
+    export CLONE_HEADERS\=NO
+    export COCOAPODS_PARALLEL_CODE_SIGN\=true
+    export CODESIGNING_FOLDER_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/Runner.app
+    export CODE_SIGNING_ALLOWED\=NO
+    export CODE_SIGNING_REQUIRED\=YES
+    export CODE_SIGN_CONTEXT_CLASS\=XCiPhoneSimulatorCodeSignContext
+    export CODE_SIGN_IDENTITY\=-
+    export CODE_SIGN_INJECT_BASE_ENTITLEMENTS\=YES
+    export COLOR_DIAGNOSTICS\=NO
+    export COMBINE_HIDPI_IMAGES\=NO
+    export COMPILATION_CACHE_CAS_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/CompilationCache.noindex
+    export COMPILATION_CACHE_KEEP_CAS_DIRECTORY\=YES
+    export COMPILER_INDEX_STORE_ENABLE\=Default
+    export COMPOSITE_SDK_DIRS\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/CompositeSDKs
+    export COMPRESS_PNG_FILES\=YES
+    export CONFIGURATION\=Debug
+    export CONFIGURATION_BUILD_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+    export CONFIGURATION_TEMP_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator
+    export CONTENTS_FOLDER_PATH\=Runner.app
+    export CONTENTS_FOLDER_PATH_SHALLOW_BUNDLE_NO\=Runner.app/Contents
+    export CONTENTS_FOLDER_PATH_SHALLOW_BUNDLE_YES\=Runner.app
+    export COPYING_PRESERVES_HFS_DATA\=NO
+    export COPY_HEADERS_RUN_UNIFDEF\=NO
+    export COPY_PHASE_STRIP\=NO
+    export CORRESPONDING_DEVICE_PLATFORM_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneOS.platform
+    export CORRESPONDING_DEVICE_PLATFORM_NAME\=iphoneos
+    export CORRESPONDING_DEVICE_SDK_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.1.sdk
+    export CORRESPONDING_DEVICE_SDK_NAME\=iphoneos26.1
+    export CP\=/bin/cp
+    export CREATE_INFOPLIST_SECTION_IN_BINARY\=NO
+    export CURRENT_ARCH\=undefined_arch
+    export CURRENT_PROJECT_VERSION\=1
+    export CURRENT_VARIANT\=normal
+    export DART_OBFUSCATION\=false
+    export DEAD_CODE_STRIPPING\=YES
+    export DEBUGGING_SYMBOLS\=YES
+    export DEBUG_INFORMATION_FORMAT\=dwarf
+    export DEBUG_INFORMATION_VERSION\=compiler-default
+    export DEFAULT_COMPILER\=com.apple.compilers.llvm.clang.1_0
+    export DEFAULT_DEXT_INSTALL_PATH\=/System/Library/DriverExtensions
+    export DEFAULT_KEXT_INSTALL_PATH\=/System/Library/Extensions
+    export DEFINES_MODULE\=NO
+    export DEPLOYMENT_LOCATION\=NO
+    export DEPLOYMENT_POSTPROCESSING\=NO
+    export DEPLOYMENT_TARGET_SETTING_NAME\=IPHONEOS_DEPLOYMENT_TARGET
+    export DEPLOYMENT_TARGET_SUGGESTED_VALUES\=12.0\ 12.1\ 12.2\ 12.3\ 12.4\ 13.0\ 13.1\ 13.2\ 13.3\ 13.4\ 13.5\ 13.6\ 14.0\ 14.1\ 14.2\ 14.3\ 14.4\ 14.5\ 14.6\ 14.7\ 15.0\ 15.1\ 15.2\ 15.3\ 15.4\ 15.5\ 15.6\ 16.0\ 16.1\ 16.2\ 16.3\ 16.4\ 16.5\ 16.6\ 17.0\ 17.1\ 17.2\ 17.3\ 17.4\ 17.5\ 17.6\ 18.0\ 18.1\ 18.2\ 18.3\ 18.4\ 18.5\ 18.6\ 26.0\ 26.1
+    export DERIVED_FILES_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources
+    export DERIVED_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources
+    export DERIVED_SOURCES_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources
+    export DEVELOPER_APPLICATIONS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications
+    export DEVELOPER_BIN_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/usr/bin
+    export DEVELOPER_DIR\=/Applications/Xcode-26.1.app/Contents/Developer
+    export DEVELOPER_FRAMEWORKS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Library/Frameworks
+    export DEVELOPER_FRAMEWORKS_DIR_QUOTED\=/Applications/Xcode-26.1.app/Contents/Developer/Library/Frameworks
+    export DEVELOPER_LIBRARY_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Library
+    export DEVELOPER_SDK_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
+    export DEVELOPER_TOOLS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Tools
+    export DEVELOPER_USR_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/usr
+    export DEVELOPMENT_LANGUAGE\=en
+    export DIAGNOSE_MISSING_TARGET_DEPENDENCIES\=YES
+    export DIFF\=/usr/bin/diff
+    export DOCUMENTATION_FOLDER_PATH\=Runner.app/en.lproj/Documentation
+    export DONT_GENERATE_INFOPLIST_FILE\=NO
+    export DSTROOT\=/tmp/Runner.dst
+    export DT_TOOLCHAIN_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+    export DWARF_DSYM_FILE_NAME\=Runner.app.dSYM
+    export DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT\=NO
+    export DWARF_DSYM_FOLDER_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+    export DYNAMIC_LIBRARY_EXTENSION\=dylib
+    export EAGER_COMPILATION_ALLOW_SCRIPTS\=NO
+    export EAGER_LINKING\=NO
+    export EFFECTIVE_PLATFORM_NAME\=-iphonesimulator
+    export EMBEDDED_CONTENT_CONTAINS_SWIFT\=NO
+    export EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE\=NO
+    export ENABLE_APP_SANDBOX\=NO
+    export ENABLE_BITCODE\=NO
+    export ENABLE_CODE_COVERAGE\=YES
+    export ENABLE_CPLUSPLUS_BOUNDS_SAFE_BUFFERS\=NO
+    export ENABLE_C_BOUNDS_SAFETY\=NO
+    export ENABLE_DEBUG_DYLIB\=YES
+    export ENABLE_DEFAULT_HEADER_SEARCH_PATHS\=YES
+    export ENABLE_DEFAULT_SEARCH_PATHS\=YES
+    export ENABLE_ENHANCED_SECURITY\=NO
+    export ENABLE_HARDENED_RUNTIME\=NO
+    export ENABLE_HEADER_DEPENDENCIES\=YES
+    export ENABLE_INCOMING_NETWORK_CONNECTIONS\=NO
+    export ENABLE_ON_DEMAND_RESOURCES\=YES
+    export ENABLE_OUTGOING_NETWORK_CONNECTIONS\=NO
+    export ENABLE_POINTER_AUTHENTICATION\=NO
+    export ENABLE_PREVIEWS\=NO
+    export ENABLE_RESOURCE_ACCESS_AUDIO_INPUT\=NO
+    export ENABLE_RESOURCE_ACCESS_BLUETOOTH\=NO
+    export ENABLE_RESOURCE_ACCESS_CALENDARS\=NO
+    export ENABLE_RESOURCE_ACCESS_CAMERA\=NO
+    export ENABLE_RESOURCE_ACCESS_CONTACTS\=NO
+    export ENABLE_RESOURCE_ACCESS_LOCATION\=NO
+    export ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY\=NO
+    export ENABLE_RESOURCE_ACCESS_PRINTING\=NO
+    export ENABLE_RESOURCE_ACCESS_USB\=NO
+    export ENABLE_SDK_IMPORTS\=NO
+    export ENABLE_SECURITY_COMPILER_WARNINGS\=NO
+    export ENABLE_STRICT_OBJC_MSGSEND\=YES
+    export ENABLE_TESTABILITY\=YES
+    export ENABLE_TESTING_SEARCH_PATHS\=NO
+    export ENABLE_USER_SCRIPT_SANDBOXING\=NO
+    export ENABLE_XOJIT_PREVIEWS\=YES
+    export ENFORCE_VALID_ARCHS\=YES
+    export ENTITLEMENTS_ALLOWED\=NO
+    export ENTITLEMENTS_DESTINATION\=__entitlements
+    export ENTITLEMENTS_REQUIRED\=NO
+    export EXCLUDED_ARCHS\=i386
+    export EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS\=.DS_Store\ .svn\ .git\ .hg\ CVS
+    export EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES\=\*.nib\ \*.lproj\ \*.framework\ \*.gch\ \*.xcode\*\ \*.xcassets\ \*.icon\ \(\*\)\ .DS_Store\ CVS\ .svn\ .git\ .hg\ \*.pbproj\ \*.pbxproj
+    export EXECUTABLES_FOLDER_PATH\=Runner.app/Executables
+    export EXECUTABLE_BLANK_INJECTION_DYLIB_PATH\=Runner.app/__preview.dylib
+    export EXECUTABLE_DEBUG_DYLIB_INSTALL_NAME\=@rpath/Runner.debug.dylib
+    export EXECUTABLE_DEBUG_DYLIB_PATH\=Runner.app/Runner.debug.dylib
+    export EXECUTABLE_FOLDER_PATH\=Runner.app
+    export EXECUTABLE_FOLDER_PATH_SHALLOW_BUNDLE_NO\=Runner.app/MacOS
+    export EXECUTABLE_FOLDER_PATH_SHALLOW_BUNDLE_YES\=Runner.app
+    export EXECUTABLE_NAME\=Runner
+    export EXECUTABLE_PATH\=Runner.app/Runner
+    export EXTENSIONS_FOLDER_PATH\=Runner.app/Extensions
+    export FILE_LIST\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects/LinkFileList
+    export FIXED_FILES_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/FixedFiles
+    export FLUTTER_APPLICATION_PATH\=/Users/builder/clone
+    export FLUTTER_BUILD_DIR\=build
+    export FLUTTER_BUILD_NAME\=1.0.0
+    export FLUTTER_BUILD_NUMBER\=1
+    export FLUTTER_ROOT\=/Users/builder/programs/flutter_3_35_7
+    export FLUTTER_TARGET\=lib/main.dart
+    export FRAMEWORKS_FOLDER_PATH\=Runner.app/Frameworks
+    export FRAMEWORK_FLAG_PREFIX\=-framework
+    export FRAMEWORK_SEARCH_PATHS\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator\ 
+    export FRAMEWORK_VERSION\=A
+    export FULL_PRODUCT_NAME\=Runner.app
+    export FUSE_BUILD_PHASES\=YES
+    export FUSE_BUILD_SCRIPT_PHASES\=NO
+    export GCC3_VERSION\=3.3
+    export GCC_C_LANGUAGE_STANDARD\=gnu99
+    export GCC_DYNAMIC_NO_PIC\=NO
+    export GCC_INLINES_ARE_PRIVATE_EXTERN\=YES
+    export GCC_NO_COMMON_BLOCKS\=YES
+    export GCC_OBJC_LEGACY_DISPATCH\=YES
+    export GCC_OPTIMIZATION_LEVEL\=0
+    export GCC_PFE_FILE_C_DIALECTS\=c\ objective-c\ c++\ objective-c++
+    export GCC_PREPROCESSOR_DEFINITIONS\=DEBUG\=1\ \ COCOAPODS\=1
+    export GCC_SYMBOLS_PRIVATE_EXTERN\=NO
+    export GCC_TREAT_WARNINGS_AS_ERRORS\=NO
+    export GCC_VERSION\=com.apple.compilers.llvm.clang.1_0
+    export GCC_VERSION_IDENTIFIER\=com_apple_compilers_llvm_clang_1_0
+    export GCC_WARN_64_TO_32_BIT_CONVERSION\=YES
+    export GCC_WARN_ABOUT_RETURN_TYPE\=YES_ERROR
+    export GCC_WARN_UNDECLARED_SELECTOR\=YES
+    export GCC_WARN_UNINITIALIZED_AUTOS\=YES_AGGRESSIVE
+    export GCC_WARN_UNUSED_FUNCTION\=YES
+    export GCC_WARN_UNUSED_VARIABLE\=YES
+    export GENERATED_MODULEMAP_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator
+    export GENERATE_INFOPLIST_FILE\=NO
+    export GENERATE_INTERMEDIATE_TEXT_BASED_STUBS\=YES
+    export GENERATE_PKGINFO_FILE\=YES
+    export GENERATE_PRELINK_OBJECT_FILE\=NO
+    export GENERATE_PROFILING_CODE\=NO
+    export GENERATE_TEXT_BASED_STUBS\=NO
+    export GID\=20
+    export GROUP\=staff
+    export HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT\=YES
+    export HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES\=YES
+    export HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_TARGETS_NOT_BEING_BUILT\=YES
+    export HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS\=YES
+    export HEADERMAP_INCLUDES_PROJECT_HEADERS\=YES
+    export HEADERMAP_USES_FRAMEWORK_PREFIX_ENTRIES\=YES
+    export HEADERMAP_USES_VFS\=NO
+    export HEADER_SEARCH_PATHS\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include\ 
+    export HOME\=/Users/builder
+    export HOST_ARCH\=arm64
+    export HOST_PLATFORM\=macosx
+    export ICONV\=/usr/bin/iconv
+    export IMPLICIT_DEPENDENCY_DOMAIN\=default
+    export INFOPLIST_ENABLE_CFBUNDLEICONS_MERGE\=YES
+    export INFOPLIST_EXPAND_BUILD_SETTINGS\=YES
+    export INFOPLIST_FILE\=Runner/Info.plist
+    export INFOPLIST_OUTPUT_FORMAT\=binary
+    export INFOPLIST_PATH\=Runner.app/Info.plist
+    export INFOPLIST_PREPROCESS\=NO
+    export INFOSTRINGS_PATH\=Runner.app/en.lproj/InfoPlist.strings
+    export INLINE_PRIVATE_FRAMEWORKS\=NO
+    export INSTALLAPI_IGNORE_SKIP_INSTALL\=YES
+    export INSTALLHDRS_COPY_PHASE\=NO
+    export INSTALLHDRS_SCRIPT_PHASE\=NO
+    export INSTALL_DIR\=/tmp/Runner.dst/Applications
+    export INSTALL_GROUP\=staff
+    export INSTALL_MODE_FLAG\=u+w,go-w,a+rX
+    export INSTALL_OWNER\=builder
+    export INSTALL_PATH\=/Applications
+    export INSTALL_ROOT\=/tmp/Runner.dst
+    export IPHONEOS_DEPLOYMENT_TARGET\=13.0
+    export IS_UNOPTIMIZED_BUILD\=YES
+    export JAVAC_DEFAULT_FLAGS\=-J-Xms64m\ -J-XX:NewSize\=4M\ -J-Dfile.encoding\=UTF8
+    export JAVA_APP_STUB\=/System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub
+    export JAVA_ARCHIVE_CLASSES\=YES
+    export JAVA_ARCHIVE_TYPE\=JAR
+    export JAVA_COMPILER\=/usr/bin/javac
+    export JAVA_FOLDER_PATH\=Runner.app/Java
+    export JAVA_FRAMEWORK_RESOURCES_DIRS\=Resources
+    export JAVA_JAR_FLAGS\=cv
+    export JAVA_SOURCE_SUBDIR\=.
+    export JAVA_USE_DEPENDENCIES\=YES
+    export JAVA_ZIP_FLAGS\=-urg
+    export JIKES_DEFAULT_FLAGS\=+E\ +OLDCSO
+    export KEEP_PRIVATE_EXTERNS\=NO
+    export LD_DEPENDENCY_INFO_FILE\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/undefined_arch/Runner_dependency_info.dat
+    export LD_EXPORT_SYMBOLS\=YES
+    export LD_GENERATE_MAP_FILE\=NO
+    export LD_MAP_FILE_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-LinkMap-normal-undefined_arch.txt
+    export LD_NO_PIE\=NO
+    export LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER\=YES
+    export LD_RUNPATH_SEARCH_PATHS\=\ @executable_path/Frameworks
+    export LD_RUNPATH_SEARCH_PATHS_YES\=@loader_path/../Frameworks
+    export LD_SHARED_CACHE_ELIGIBLE\=Automatic
+    export LD_WARN_DUPLICATE_LIBRARIES\=NO
+    export LD_WARN_UNUSED_DYLIBS\=NO
+    export LEGACY_DEVELOPER_DIR\=/Applications/Xcode-26.1.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer
+    export LEX\=lex
+    export LIBRARY_DEXT_INSTALL_PATH\=/Library/DriverExtensions
+    export LIBRARY_FLAG_NOSPACE\=YES
+    export LIBRARY_FLAG_PREFIX\=-l
+    export LIBRARY_KEXT_INSTALL_PATH\=/Library/Extensions
+    export LIBRARY_SEARCH_PATHS\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator\ 
+    export LINKER_DISPLAYS_MANGLED_NAMES\=NO
+    export LINK_FILE_LIST_normal_arm64\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.LinkFileList
+    export LINK_FILE_LIST_normal_x86_64\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.LinkFileList
+    export LINK_OBJC_RUNTIME\=YES
+    export LINK_WITH_STANDARD_LIBRARIES\=YES
+    export LLVM_TARGET_TRIPLE_OS_VERSION\=ios13.0
+    export LLVM_TARGET_TRIPLE_SUFFIX\=-simulator
+    export LLVM_TARGET_TRIPLE_VENDOR\=apple
+    export LM_AUX_CONST_METADATA_LIST_PATH_normal_arm64\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftConstValuesFileList
+    export LM_AUX_CONST_METADATA_LIST_PATH_normal_x86_64\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.SwiftConstValuesFileList
+    export LOCALIZATION_EXPORT_SUPPORTED\=YES
+    export LOCALIZATION_PREFERS_STRING_CATALOGS\=NO
+    export LOCALIZED_RESOURCES_FOLDER_PATH\=Runner.app/en.lproj
+    export LOCALIZED_STRING_MACRO_NAMES\=NSLocalizedString\ CFCopyLocalizedString
+    export LOCALIZED_STRING_SWIFTUI_SUPPORT\=YES
+    export LOCAL_ADMIN_APPS_DIR\=/Applications/Utilities
+    export LOCAL_APPS_DIR\=/Applications
+    export LOCAL_DEVELOPER_DIR\=/Library/Developer
+    export LOCAL_LIBRARY_DIR\=/Library
+    export LOCROOT\=/Users/builder/clone/ios
+    export LOCSYMROOT\=/Users/builder/clone/ios
+    export MACH_O_TYPE\=mh_execute
+    export MAC_OS_X_PRODUCT_BUILD_VERSION\=25B78
+    export MAC_OS_X_VERSION_ACTUAL\=260100
+    export MAC_OS_X_VERSION_MAJOR\=260000
+    export MAC_OS_X_VERSION_MINOR\=260100
+    export MAKE_MERGEABLE\=NO
+    export MERGEABLE_LIBRARY\=NO
+    export MERGED_BINARY_TYPE\=none
+    export MERGE_LINKED_LIBRARIES\=NO
+    export METAL_LIBRARY_FILE_BASE\=default
+    export METAL_LIBRARY_OUTPUT_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/Runner.app
+    export MODULES_FOLDER_PATH\=Runner.app/Modules
+    export MODULE_CACHE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex
+    export MTL_ENABLE_DEBUG_INFO\=YES
+    export NATIVE_ARCH\=arm64
+    export NATIVE_ARCH_32_BIT\=arm
+    export NATIVE_ARCH_64_BIT\=arm64
+    export NATIVE_ARCH_ACTUAL\=arm64
+    export NO_COMMON\=YES
+    export OBJC_ABI_VERSION\=2
+    export OBJECT_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects
+    export OBJECT_FILE_DIR_normal\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal
+    export OBJROOT\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
+    export ONLY_ACTIVE_ARCH\=NO
+    export OS\=MACOS
+    export OSAC\=/usr/bin/osacompile
+    export PACKAGE_CONFIG\=.dart_tool/package_config.json
+    export PACKAGE_TYPE\=com.apple.package-type.wrapper.application
+    export PASCAL_STRINGS\=YES
+    export PATH\=/Applications/Xcode-26.1.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode-26.1.app/Contents/Developer/usr/bin:/Applications/Xcode-26.1.app/Contents/Developer/usr/local/bin:/Users/builder/.rbenv/shims:/Users/builder/.rbenv/bin:/Users/builder/.pyenv/versions/3.12.7/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/Users/builder/.local/bin:/usr/local/share/android-sdk/emulator:/usr/local/share/android-sdk/tools:/usr/local/share/android-sdk/platform-tools:/usr/local/share/android-sdk/ndk/29.0.13113456:/Users/builder/.pub-cache/bin:/Users/builder/programs/flutter/bin:/Users/builder/programs/flutter/.pub-cache/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    export PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES\=/usr/include\ /usr/local/include\ /System/Library/Frameworks\ /System/Library/PrivateFrameworks\ /Applications/Xcode-26.1.app/Contents/Developer/Headers\ /Applications/Xcode-26.1.app/Contents/Developer/SDKs\ /Applications/Xcode-26.1.app/Contents/Developer/Platforms
+    export PBDEVELOPMENTPLIST_PATH\=Runner.app/pbdevelopment.plist
+    export PER_ARCH_MODULE_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/undefined_arch
+    export PER_ARCH_OBJECT_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/undefined_arch
+    export PER_VARIANT_OBJECT_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal
+    export PKGINFO_FILE_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/PkgInfo
+    export PKGINFO_PATH\=Runner.app/PkgInfo
+    export PLATFORM_DEVELOPER_APPLICATIONS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications
+    export PLATFORM_DEVELOPER_BIN_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin
+    export PLATFORM_DEVELOPER_LIBRARY_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library
+    export PLATFORM_DEVELOPER_SDK_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs
+    export PLATFORM_DEVELOPER_TOOLS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools
+    export PLATFORM_DEVELOPER_USR_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr
+    export PLATFORM_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform
+    export PLATFORM_DISPLAY_NAME\=iOS\ Simulator
+    export PLATFORM_FAMILY_NAME\=iOS
+    export PLATFORM_NAME\=iphonesimulator
+    export PLATFORM_PREFERRED_ARCH\=x86_64
+    export PLATFORM_PRODUCT_BUILD_VERSION\=23B77
+    export PLATFORM_REQUIRES_SWIFT_AUTOLINK_EXTRACT\=NO
+    export PLATFORM_REQUIRES_SWIFT_MODULEWRAP\=NO
+    export PLIST_FILE_OUTPUT_FORMAT\=binary
+    export PLUGINS_FOLDER_PATH\=Runner.app/PlugIns
+    export PODS_BUILD_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+    export PODS_CONFIGURATION_BUILD_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+    export PODS_PODFILE_DIR_PATH\=/Users/builder/clone/ios/.
+    export PODS_ROOT\=/Users/builder/clone/ios/Pods
+    export PODS_XCFRAMEWORKS_BUILD_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates
+    export PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR\=YES
+    export PRECOMP_DESTINATION_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/PrefixHeaders
+    export PRIVATE_HEADERS_FOLDER_PATH\=Runner.app/PrivateHeaders
+    export PROCESSED_INFOPLIST_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/undefined_arch/Processed-Info.plist
+    export PRODUCT_BUNDLE_IDENTIFIER\=com.example.vpnEchWkIos
+    export PRODUCT_BUNDLE_PACKAGE_TYPE\=APPL
+    export PRODUCT_MODULE_NAME\=Runner
+    export PRODUCT_NAME\=Runner
+    export PRODUCT_SETTINGS_PATH\=/Users/builder/clone/ios/Runner/Info.plist
+    export PRODUCT_TYPE\=com.apple.product-type.application
+    export PROFILING_CODE\=NO
+    export PROJECT\=Runner
+    export PROJECT_DERIVED_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/DerivedSources
+    export PROJECT_DIR\=/Users/builder/clone/ios
+    export PROJECT_FILE_PATH\=/Users/builder/clone/ios/Runner.xcodeproj
+    export PROJECT_GUID\=18c1723432283e0cc55f10a6dcfd9e02
+    export PROJECT_NAME\=Runner
+    export PROJECT_TEMP_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build
+    export PROJECT_TEMP_ROOT\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
+    export PROVISIONING_PROFILE_REQUIRED\=NO
+    export PROVISIONING_PROFILE_REQUIRED_YES_YES\=YES
+    export PROVISIONING_PROFILE_SUPPORTED\=YES
+    export PUBLIC_HEADERS_FOLDER_PATH\=Runner.app/Headers
+    export RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET\=15.0
+    export RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS\=YES
+    export REMOVE_CVS_FROM_RESOURCES\=YES
+    export REMOVE_GIT_FROM_RESOURCES\=YES
+    export REMOVE_HEADERS_FROM_EMBEDDED_BUNDLES\=YES
+    export REMOVE_HG_FROM_RESOURCES\=YES
+    export REMOVE_STATIC_EXECUTABLES_FROM_EMBEDDED_BUNDLES\=YES
+    export REMOVE_SVN_FROM_RESOURCES\=YES
+    export RESCHEDULE_INDEPENDENT_HEADERS_PHASES\=YES
+    export REZ_COLLECTOR_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/ResourceManagerResources
+    export REZ_OBJECTS_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/ResourceManagerResources/Objects
+    export REZ_SEARCH_PATHS\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator\ 
+    export RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES\=NO
+    export RUNTIME_EXCEPTION_ALLOW_JIT\=NO
+    export RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY\=NO
+    export RUNTIME_EXCEPTION_DEBUGGING_TOOL\=NO
+    export RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION\=NO
+    export RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION\=NO
+    export SCAN_ALL_SOURCE_FILES_FOR_INCLUDES\=NO
+    export SCRIPTS_FOLDER_PATH\=Runner.app/Scripts
+    export SCRIPT_INPUT_FILE_COUNT\=0
+    export SCRIPT_INPUT_FILE_LIST_COUNT\=0
+    export SCRIPT_OUTPUT_FILE_COUNT\=0
+    export SCRIPT_OUTPUT_FILE_LIST_COUNT\=0
+    export SDKROOT\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk
+    export SDK_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk
+    export SDK_DIR_iphonesimulator\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk
+    export SDK_DIR_iphonesimulator26_1\=/Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk
+    export SDK_NAME\=iphonesimulator26.1
+    export SDK_NAMES\=iphonesimulator26.1
+    export SDK_PRODUCT_BUILD_VERSION\=23B77
+    export SDK_STAT_CACHE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData
+    export SDK_STAT_CACHE_ENABLE\=YES
+    export SDK_STAT_CACHE_PATH\=/Users/builder/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.1-23B77-3db4f1cf0fd34ab1c3d11b67df3df23b.sdkstatcache
+    export SDK_VERSION\=26.1
+    export SDK_VERSION_ACTUAL\=260100
+    export SDK_VERSION_MAJOR\=260000
+    export SDK_VERSION_MINOR\=260100
+    export SED\=/usr/bin/sed
+    export SEPARATE_STRIP\=NO
+    export SEPARATE_SYMBOL_EDIT\=NO
+    export SET_DIR_MODE_OWNER_GROUP\=YES
+    export SET_FILE_MODE_OWNER_GROUP\=NO
+    export SHALLOW_BUNDLE\=YES
+    export SHALLOW_BUNDLE_TRIPLE\=ios-simulator
+    export SHALLOW_BUNDLE_ios_macabi\=NO
+    export SHALLOW_BUNDLE_macos\=NO
+    export SHARED_DERIVED_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/DerivedSources
+    export SHARED_FRAMEWORKS_FOLDER_PATH\=Runner.app/SharedFrameworks
+    export SHARED_PRECOMPS_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/PrecompiledHeaders
+    export SHARED_SUPPORT_FOLDER_PATH\=Runner.app/SharedSupport
+    export SKIP_INSTALL\=NO
+    export SOURCE_ROOT\=/Users/builder/clone/ios
+    export SRCROOT\=/Users/builder/clone/ios
+    export STRINGSDATA_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/undefined_arch
+    export STRINGSDATA_ROOT\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build
+    export STRINGS_FILE_INFOPLIST_RENAME\=YES
+    export STRINGS_FILE_OUTPUT_ENCODING\=binary
+    export STRING_CATALOG_GENERATE_SYMBOLS\=NO
+    export STRIP_BITCODE_FROM_COPIED_FILES\=NO
+    export STRIP_INSTALLED_PRODUCT\=NO
+    export STRIP_STYLE\=all
+    export STRIP_SWIFT_SYMBOLS\=YES
+    export SUPPORTED_DEVICE_FAMILIES\=1,2
+    export SUPPORTED_PLATFORMS\=iphoneos\ iphonesimulator
+    export SUPPORTS_MACCATALYST\=NO
+    export SUPPORTS_ON_DEMAND_RESOURCES\=YES
+    export SUPPORTS_TEXT_BASED_API\=NO
+    export SUPPRESS_WARNINGS\=NO
+    export SWIFT_EMIT_CONST_VALUE_PROTOCOLS\=AppIntent\ EntityQuery\ AppEntity\ TransientEntity\ AppEnum\ AppShortcutProviding\ AppShortcutsProvider\ AnyResolverProviding\ AppIntentsPackage\ DynamicOptionsProvider\ _IntentValueRepresentable\ _AssistantIntentsProvider\ _GenerativeFunctionExtractable\ IntentValueQuery\ Resolver\ AppExtension\ ExtensionPointDefining
+    export SWIFT_EMIT_LOC_STRINGS\=NO
+    export SWIFT_ENABLE_EXPLICIT_MODULES\=YES
+    export SWIFT_OBJC_BRIDGING_HEADER\=Runner/Runner-Bridging-Header.h
+    export SWIFT_OPTIMIZATION_LEVEL\=-Onone
+    export SWIFT_PLATFORM_TARGET_PREFIX\=ios
+    export SWIFT_RESPONSE_FILE_PATH_normal_arm64\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftFileList
+    export SWIFT_RESPONSE_FILE_PATH_normal_x86_64\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/Runner.SwiftFileList
+    export SWIFT_VERSION\=5.0
+    export SYMROOT\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+    export SYSTEM_ADMIN_APPS_DIR\=/Applications/Utilities
+    export SYSTEM_APPS_DIR\=/Applications
+    export SYSTEM_CORE_SERVICES_DIR\=/System/Library/CoreServices
+    export SYSTEM_DEMOS_DIR\=/Applications/Extras
+    export SYSTEM_DEVELOPER_APPS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications
+    export SYSTEM_DEVELOPER_BIN_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/usr/bin
+    export SYSTEM_DEVELOPER_DEMOS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications/Utilities/Built\ Examples
+    export SYSTEM_DEVELOPER_DIR\=/Applications/Xcode-26.1.app/Contents/Developer
+    export SYSTEM_DEVELOPER_DOC_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/ADC\ Reference\ Library
+    export SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications/Graphics\ Tools
+    export SYSTEM_DEVELOPER_JAVA_TOOLS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications/Java\ Tools
+    export SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications/Performance\ Tools
+    export SYSTEM_DEVELOPER_RELEASENOTES_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/ADC\ Reference\ Library/releasenotes
+    export SYSTEM_DEVELOPER_TOOLS\=/Applications/Xcode-26.1.app/Contents/Developer/Tools
+    export SYSTEM_DEVELOPER_TOOLS_DOC_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/ADC\ Reference\ Library/documentation/DeveloperTools
+    export SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/ADC\ Reference\ Library/releasenotes/DeveloperTools
+    export SYSTEM_DEVELOPER_USR_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/usr
+    export SYSTEM_DEVELOPER_UTILITIES_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Applications/Utilities
+    export SYSTEM_DEXT_INSTALL_PATH\=/System/Library/DriverExtensions
+    export SYSTEM_DOCUMENTATION_DIR\=/Library/Documentation
+    export SYSTEM_EXTENSIONS_FOLDER_PATH\=Runner.app/SystemExtensions
+    export SYSTEM_EXTENSIONS_FOLDER_PATH_SHALLOW_BUNDLE_NO\=Runner.app/Library/SystemExtensions
+    export SYSTEM_EXTENSIONS_FOLDER_PATH_SHALLOW_BUNDLE_YES\=Runner.app/SystemExtensions
+    export SYSTEM_KEXT_INSTALL_PATH\=/System/Library/Extensions
+    export SYSTEM_LIBRARY_DIR\=/System/Library
+    export TAPI_DEMANGLE\=YES
+    export TAPI_ENABLE_PROJECT_HEADERS\=NO
+    export TAPI_LANGUAGE\=objective-c
+    export TAPI_LANGUAGE_STANDARD\=compiler-default
+    export TAPI_USE_SRCROOT\=YES
+    export TAPI_VERIFY_MODE\=Pedantic
+    export TARGETED_DEVICE_FAMILY\=1,2
+    export TARGETNAME\=Runner
+    export TARGET_BUILD_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+    export TARGET_NAME\=Runner
+    export TARGET_TEMP_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build
+    export TEMP_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build
+    export TEMP_FILES_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build
+    export TEMP_FILE_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build
+    export TEMP_ROOT\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
+    export TEMP_SANDBOX_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/TemporaryTaskSandboxes
+    export TEST_FRAMEWORK_SEARCH_PATHS\=\ /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks\ /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk/Developer/Library/Frameworks
+    export TEST_LIBRARY_SEARCH_PATHS\=\ /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib
+    export TOOLCHAINS\=com.apple.dt.toolchain.XcodeDefault
+    export TOOLCHAIN_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+    export TRACK_WIDGET_CREATION\=true
+    export TREAT_MISSING_BASELINES_AS_TEST_FAILURES\=NO
+    export TREAT_MISSING_SCRIPT_PHASE_OUTPUTS_AS_ERRORS\=NO
+    export TREE_SHAKE_ICONS\=false
+    export UID\=501
+    export UNINSTALLED_PRODUCTS_DIR\=/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/UninstalledProducts
+    export UNLOCALIZED_RESOURCES_FOLDER_PATH\=Runner.app
+    export UNLOCALIZED_RESOURCES_FOLDER_PATH_SHALLOW_BUNDLE_NO\=Runner.app/Resources
+    export UNLOCALIZED_RESOURCES_FOLDER_PATH_SHALLOW_BUNDLE_YES\=Runner.app
+    export UNSTRIPPED_PRODUCT\=NO
+    export USER\=builder
+    export USER_APPS_DIR\=/Users/builder/Applications
+    export USER_LIBRARY_DIR\=/Users/builder/Library
+    export USE_DYNAMIC_NO_PIC\=YES
+    export USE_HEADERMAP\=YES
+    export USE_HEADER_SYMLINKS\=NO
+    export USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES\=YES
+    export VALIDATE_DEVELOPMENT_ASSET_PATHS\=YES_ERROR
+    export VALIDATE_PRODUCT\=NO
+    export VALID_ARCHS\=arm64\ x86_64
+    export VERBOSE_PBXCP\=NO
+    export VERSIONING_SYSTEM\=apple-generic
+    export VERSIONPLIST_PATH\=Runner.app/version.plist
+    export VERSION_INFO_BUILDER\=builder
+    export VERSION_INFO_FILE\=Runner_vers.c
+    export VERSION_INFO_STRING\=\"@\(\#\)PROGRAM:Runner\ \ PROJECT:Runner-1\"
+    export WORKSPACE_DIR\=/Users/builder/clone/ios
+    export WRAPPER_EXTENSION\=app
+    export WRAPPER_NAME\=Runner.app
+    export WRAPPER_SUFFIX\=.app
+    export WRAP_ASSET_PACKS_IN_SEPARATE_DIRECTORIES\=NO
+    export XCODE_APP_SUPPORT_DIR\=/Applications/Xcode-26.1.app/Contents/Developer/Library/Xcode
+    export XCODE_PRODUCT_BUILD_VERSION\=17B100
+    export XCODE_VERSION_ACTUAL\=2611
+    export XCODE_VERSION_MAJOR\=2600
+    export XCODE_VERSION_MINOR\=2610
+    export XPCSERVICES_FOLDER_PATH\=Runner.app/XPCServices
+    export YACC\=yacc
+    export _DISCOVER_COMMAND_LINE_LINKER_INPUTS\=YES
+    export _DISCOVER_COMMAND_LINE_LINKER_INPUTS_INCLUDE_WL\=YES
+    export _LD_MULTIARCH\=YES
+    export _WRAPPER_CONTENTS_DIR_SHALLOW_BUNDLE_NO\=/Contents
+    export _WRAPPER_PARENT_PATH_SHALLOW_BUNDLE_NO\=/..
+    export _WRAPPER_RESOURCES_DIR_SHALLOW_BUNDLE_NO\=/Resources
+    export __DIAGNOSE_DEPRECATED_ARCHS\=YES
+    export __IS_NOT_MACOS\=YES
+    export __IS_NOT_MACOS_macosx\=NO
+    export __IS_NOT_SIMULATOR\=NO
+    export __IS_NOT_SIMULATOR_simulator\=NO
+    export arch\=undefined_arch
+    export variant\=normal
+    /bin/sh -c /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh
+/Users/builder/clone/ios/Runner/AppDelegate.swift:15: warning: Flutter deprecation: Accessing rootViewController in `application:didFinishLaunchingWithOptions:` [flutter-launch-rootvc].
+	note: 
+	After the UISceneDelegate migration the `UIApplicationDelegate.window` and `UIWindow.rootViewController` properties will not be set in `application:didFinishLaunchingWithOptions:`. If you are relying on that in order to register platform channels at application launch use the `FlutterPluginRegistry` API instead. Other setup can be moved to a FlutterViewController subclass (ex: `awakeFromNib`).
+lib/core/socks5_server.dart:24:19: Error: A named parameter can't start with an underscore ('_').
+    required this._echClient,
+                  ^^^^^^^^^^
+lib/core/socks5_server.dart:25:10: Error: A named parameter can't start with an underscore ('_').
+    this._routingMode = RoutingMode.global,
+         ^^^^^^^^^^^^
+lib/services/vpn_service.dart:225:24: Error: Type 'FlutterVpnState' not found.
+  void _updateVpnState(FlutterVpnState state) {
+                       ^^^^^^^^^^^^^^^
+lib/services/certificate_service.dart:26:9: Error: Type 'StreamController' not found.
+  final StreamController<bool> _certificateStatusController =
+        ^^^^^^^^^^^^^^^^
+lib/core/socks5_server.dart:14:9: Error: Type 'ECHClient' not found.
+  final ECHClient _echClient;
+        ^^^^^^^^^
+lib/core/socks5_server.dart:20:3: Error: Type 'int64' not found.
+  int64 _bytesTransferred = 0;
+  ^^^^^
+lib/core/proxy_server.dart:10:1: Error: 'RoutingMode' is imported from both 'package:vpn_ech_wk_ios/core/socks5_server.dart' and 'package:vpn_ech_wk_ios/models/server_config.dart'.
+import '../models/server_config.dart';
+^^^^^^^^^^^
+lib/core/proxy_server.dart:43:24: Error: Not a constant expression.
+    this.routingMode = RoutingMode.global,
+                       ^^^^^^^^^^^
+lib/core/proxy_server.dart:43:24: Error: 'RoutingMode' is imported from both 'package:vpn_ech_wk_ios/core/socks5_server.dart' and 'package:vpn_ech_wk_ios/models/server_config.dart'.
+    this.routingMode = RoutingMode.global,
+                       ^^^^^^^^^^^
+lib/main.dart:49:24: Error: Member not found: 'vpn'.
+  if (await Permission.vpn.isDenied) {
+                       ^^^
+lib/main.dart:50:22: Error: Member not found: 'vpn'.
+    await Permission.vpn.request();
+                     ^^^
+lib/screens/server_config_screen.dart:330:27: Error: The getter 'isEditing' isn't defined for the type '_ServerConfigScreenState'.
+ - '_ServerConfigScreenState' is from 'package:vpn_ech_wk_ios/screens/server_config_screen.dart' ('lib/screens/server_config_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'isEditing'.
+            content: Text(isEditing ? '服务器已更新' : '服务器已添加'),
+                          ^^^^^^^^^
+lib/services/vpn_service.dart:45:24: Error: Member not found: 'FlutterVpn.initialize'.
+      await FlutterVpn.initialize();
+                       ^^^^^^^^^^
+lib/services/vpn_service.dart:110:24: Error: Member not found: 'FlutterVpn.connect'.
+      await FlutterVpn.connect(
+                       ^^^^^^^
+lib/services/vpn_service.dart:86:27: Error: The argument type 'String?' can't be assigned to the parameter type 'String'.
+        dnsServer: server.dnsServer,
+                          ^
+lib/services/vpn_service.dart:87:27: Error: The argument type 'String?' can't be assigned to the parameter type 'String'.
+        echDomain: server.echDomain,
+                          ^
+lib/services/vpn_service.dart:225:24: Error: 'FlutterVpnState' isn't a type.
+  void _updateVpnState(FlutterVpnState state) {
+                       ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:228:12: Error: Not a constant expression.
+      case FlutterVpnState.disconnected:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:231:12: Error: Not a constant expression.
+      case FlutterVpnState.connecting:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:234:12: Error: Not a constant expression.
+      case FlutterVpnState.connected:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:238:12: Error: Not a constant expression.
+      case FlutterVpnState.disconnecting:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:241:12: Error: Not a constant expression.
+      case FlutterVpnState.error:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:366:13: Error: No named parameter with the name 'timeout'.
+            timeout: const Duration(seconds: 30),
+            ^^^^^^^
+lib/services/certificate_service.dart:26:9: Error: 'StreamController' isn't a type.
+  final StreamController<bool> _certificateStatusController =
+        ^^^^^^^^^^^^^^^^
+lib/services/certificate_service.dart:27:7: Error: Couldn't find constructor 'StreamController'.
+      StreamController<bool>.broadcast();
+      ^^^^^^^^^^^^^^^^
+lib/services/certificate_service.dart:42:34: Error: The getter 'CertificatePlatformChannel' isn't defined for the type 'CertificateService'.
+ - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CertificatePlatformChannel'.
+      final certificates = await CertificatePlatformChannel.generateCertificate(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/services/certificate_service.dart:111:19: Error: The method 'canLaunch' isn't defined for the type 'CertificateService'.
+ - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'canLaunch'.
+        if (await canLaunch(url)) {
+                  ^^^^^^^^^
+lib/services/certificate_service.dart:112:17: Error: The method 'launch' isn't defined for the type 'CertificateService'.
+ - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'launch'.
+          await launch(url);
+                ^^^^^^
+lib/services/certificate_service.dart:138:19: Error: The method 'canLaunch' isn't defined for the type 'CertificateService'.
+ - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'canLaunch'.
+        if (await canLaunch(url)) {
+                  ^^^^^^^^^
+lib/services/certificate_service.dart:139:17: Error: The method 'launch' isn't defined for the type 'CertificateService'.
+ - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'launch'.
+          await launch(url);
+                ^^^^^^
+lib/core/proxy_server.dart:55:7: Error: No named parameter with the name 'echClient'.
+      echClient: _echClient,
+      ^^^^^^^^^
+lib/core/socks5_server.dart:22:3: Context: Found this candidate, but the arguments don't match.
+  SOCKS5Server({
+  ^^^^^^^^^^^^
+lib/core/proxy_server.dart:123:30: Error: The method 'isChinaIP' isn't defined for the type 'ChinaIPDatabase'.
+ - 'ChinaIPDatabase' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'isChinaIP'.
+    return await _ipDatabase.isChinaIP(host);
+                             ^^^^^^^^^
+lib/core/proxy_server.dart:161:39: Error: A value of type 'int?' can't be assigned to a variable of type 'num'.
+      _totalDownloadBytes += response.contentLength;
+                                      ^
+lib/core/proxy_server.dart:161:27: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+      _totalDownloadBytes += response.contentLength;
+                          ^
+lib/core/proxy_server.dart:231:33: Error: The method 'getInfo' isn't defined for the type 'ChinaIPDatabase'.
+ - 'ChinaIPDatabase' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'getInfo'.
+      'ipDatabase': _ipDatabase.getInfo(),
+                                ^^^^^^^
+lib/core/ech_client.dart:58:58: Error: The argument type 'HTTPSRecord' can't be assigned to the parameter type 'Record'.
+ - 'HTTPSRecord' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+ - 'Record' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+          final httpsRecord = DNSParser.parseHTTPSRecord(record);
+                                                         ^
+lib/core/ech_client.dart:526:54: Error: The argument type 'HTTPSRecord' can't be assigned to the parameter type 'Record'.
+ - 'HTTPSRecord' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+ - 'Record' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+      final httpsRecord = DNSParser.parseHTTPSRecord(record);
+                                                     ^
+lib/core/ech_client.dart:563:37: Error: The method 'request' isn't defined for the type 'Client'.
+ - 'Client' is from 'package:http/src/client.dart' ('../.pub-cache/hosted/pub.dev/http-1.6.0/lib/src/client.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'request'.
+      final response = await client.request(
+                                    ^^^^^^^
+lib/core/socks5_server.dart:14:9: Error: 'ECHClient' isn't a type.
+  final ECHClient _echClient;
+        ^^^^^^^^^
+lib/core/socks5_server.dart:20:3: Error: 'int64' isn't a type.
+  int64 _bytesTransferred = 0;
+  ^^^^^
+lib/core/socks5_server.dart:98:33: Error: The method 'read' isn't defined for the type 'Socket'.
+ - 'Socket' is from 'dart:io'.
+Try correcting the name to the name of an existing method, or defining a method named 'read'.
+      final data = await socket.read(257).timeout(Duration(seconds: 5));
+                                ^^^^
+lib/core/socks5_server.dart:113:33: Error: The method 'read' isn't defined for the type 'Socket'.
+ - 'Socket' is from 'dart:io'.
+Try correcting the name to the name of an existing method, or defining a method named 'read'.
+      final data = await socket.read(262).timeout(Duration(seconds: 5));
+                                ^^^^
+lib/core/socks5_server.dart:133:58: Error: The argument type 'num' can't be assigned to the parameter type 'int?'.
+          final domain = String.fromCharCodes(data, 5, 5 + domainLen);
+                                                         ^
+Target kernel_snapshot_program failed: Exception
+Failed to package /Users/builder/clone.
+Command PhaseScriptExecution failed with a nonzero exit code
+
+note: Run script build phase 'Thin Binary' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')
+note: Run script build phase 'Run Script' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')
+** BUILD FAILED **
+
+
+The following build commands failed:
+	PhaseScriptExecution Run\ Script /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh (in target 'Runner' from project 'Runner')
+	Building workspace Runner with scheme Runner and configuration Debug
+(2 failures)
+❌ xcodebuild构建失败
+尝试Flutter的模拟器构建...
+Building com.example.vpnEchWkIos for simulator (ios)...
+Running pod install...                                             452ms
+Running Xcode build...                                          
+Xcode build done.                                            8.1s
+Failed to build iOS app
+Error output from Xcode build:
+↳
+    ** BUILD FAILED **
+
+
+Xcode's output:
+↳
+    Writing result bundle at path:
+    	/var/folders/w2/rrf5p87d1bbfyphxc7jdnyvh0000gn/T/flutter_tools.LFtxNz/flutter_ios_build_temp_dir2IQHpc/temporary_xcresult_bundle
+
+    /Users/builder/clone/ios/Runner/AppDelegate.swift:15: warning: Flutter deprecation: Accessing rootViewController in `application:didFinishLaunchingWithOptions:` [flutter-launch-rootvc].
+    	note: 
+    	After the UISceneDelegate migration the `UIApplicationDelegate.window` and `UIWindow.rootViewController` properties will not be set in `application:didFinishLaunchingWithOptions:`. If you are relying on that in order to register platform channels at application launch use the `FlutterPluginRegistry` API instead. Other setup can be moved to a FlutterViewController subclass (ex: `awakeFromNib`).
+    lib/core/socks5_server.dart:24:19: Error: A named parameter can't start with an underscore ('_').
+        required this._echClient,
+                      ^^^^^^^^^^
+    lib/core/socks5_server.dart:25:10: Error: A named parameter can't start with an underscore ('_').
+        this._routingMode = RoutingMode.global,
+             ^^^^^^^^^^^^
+    lib/services/vpn_service.dart:225:24: Error: Type 'FlutterVpnState' not found.
+      void _updateVpnState(FlutterVpnState state) {
+                           ^^^^^^^^^^^^^^^
+    lib/services/certificate_service.dart:26:9: Error: Type 'StreamController' not found.
+      final StreamController<bool> _certificateStatusController =
+            ^^^^^^^^^^^^^^^^
+    lib/core/socks5_server.dart:14:9: Error: Type 'ECHClient' not found.
+      final ECHClient _echClient;
+            ^^^^^^^^^
+    lib/core/socks5_server.dart:20:3: Error: Type 'int64' not found.
+      int64 _bytesTransferred = 0;
+      ^^^^^
+    lib/core/proxy_server.dart:10:1: Error: 'RoutingMode' is imported from both 'package:vpn_ech_wk_ios/core/socks5_server.dart' and 'package:vpn_ech_wk_ios/models/server_config.dart'.
+    import '../models/server_config.dart';
+    ^^^^^^^^^^^
+    lib/core/proxy_server.dart:43:24: Error: Not a constant expression.
+        this.routingMode = RoutingMode.global,
+                           ^^^^^^^^^^^
+    lib/core/proxy_server.dart:43:24: Error: 'RoutingMode' is imported from both 'package:vpn_ech_wk_ios/core/socks5_server.dart' and 'package:vpn_ech_wk_ios/models/server_config.dart'.
+        this.routingMode = RoutingMode.global,
+                           ^^^^^^^^^^^
+    lib/main.dart:49:24: Error: Member not found: 'vpn'.
+      if (await Permission.vpn.isDenied) {
+                           ^^^
+    lib/main.dart:50:22: Error: Member not found: 'vpn'.
+        await Permission.vpn.request();
+                         ^^^
+    lib/screens/server_config_screen.dart:330:27: Error: The getter 'isEditing' isn't defined for the type '_ServerConfigScreenState'.
+     - '_ServerConfigScreenState' is from 'package:vpn_ech_wk_ios/screens/server_config_screen.dart' ('lib/screens/server_config_screen.dart').
+    Try correcting the name to the name of an existing getter, or defining a getter or field named 'isEditing'.
+                content: Text(isEditing ? '服务器已更新' : '服务器已添加'),
+                              ^^^^^^^^^
+    lib/services/vpn_service.dart:45:24: Error: Member not found: 'FlutterVpn.initialize'.
+          await FlutterVpn.initialize();
+                           ^^^^^^^^^^
+    lib/services/vpn_service.dart:110:24: Error: Member not found: 'FlutterVpn.connect'.
+          await FlutterVpn.connect(
+                           ^^^^^^^
+    lib/services/vpn_service.dart:86:27: Error: The argument type 'String?' can't be assigned to the parameter type 'String'.
+            dnsServer: server.dnsServer,
+                              ^
+    lib/services/vpn_service.dart:87:27: Error: The argument type 'String?' can't be assigned to the parameter type 'String'.
+            echDomain: server.echDomain,
+                              ^
+    lib/services/vpn_service.dart:225:24: Error: 'FlutterVpnState' isn't a type.
+      void _updateVpnState(FlutterVpnState state) {
+                           ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:228:12: Error: Not a constant expression.
+          case FlutterVpnState.disconnected:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:231:12: Error: Not a constant expression.
+          case FlutterVpnState.connecting:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:234:12: Error: Not a constant expression.
+          case FlutterVpnState.connected:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:238:12: Error: Not a constant expression.
+          case FlutterVpnState.disconnecting:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:241:12: Error: Not a constant expression.
+          case FlutterVpnState.error:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:366:13: Error: No named parameter with the name 'timeout'.
+                timeout: const Duration(seconds: 30),
+                ^^^^^^^
+    lib/services/certificate_service.dart:26:9: Error: 'StreamController' isn't a type.
+      final StreamController<bool> _certificateStatusController =
+            ^^^^^^^^^^^^^^^^
+    lib/services/certificate_service.dart:27:7: Error: Couldn't find constructor 'StreamController'.
+          StreamController<bool>.broadcast();
+          ^^^^^^^^^^^^^^^^
+    lib/services/certificate_service.dart:42:34: Error: The getter 'CertificatePlatformChannel' isn't defined for the type 'CertificateService'.
+     - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+    Try correcting the name to the name of an existing getter, or defining a getter or field named 'CertificatePlatformChannel'.
+          final certificates = await CertificatePlatformChannel.generateCertificate(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    lib/services/certificate_service.dart:111:19: Error: The method 'canLaunch' isn't defined for the type 'CertificateService'.
+     - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'canLaunch'.
+            if (await canLaunch(url)) {
+                      ^^^^^^^^^
+    lib/services/certificate_service.dart:112:17: Error: The method 'launch' isn't defined for the type 'CertificateService'.
+     - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'launch'.
+              await launch(url);
+                    ^^^^^^
+    lib/services/certificate_service.dart:138:19: Error: The method 'canLaunch' isn't defined for the type 'CertificateService'.
+     - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'canLaunch'.
+            if (await canLaunch(url)) {
+                      ^^^^^^^^^
+    lib/services/certificate_service.dart:139:17: Error: The method 'launch' isn't defined for the type 'CertificateService'.
+     - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'launch'.
+              await launch(url);
+                    ^^^^^^
+    lib/core/proxy_server.dart:55:7: Error: No named parameter with the name 'echClient'.
+          echClient: _echClient,
+          ^^^^^^^^^
+    lib/core/socks5_server.dart:22:3: Context: Found this candidate, but the arguments don't match.
+      SOCKS5Server({
+      ^^^^^^^^^^^^
+    lib/core/proxy_server.dart:123:30: Error: The method 'isChinaIP' isn't defined for the type 'ChinaIPDatabase'.
+     - 'ChinaIPDatabase' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'isChinaIP'.
+        return await _ipDatabase.isChinaIP(host);
+                                 ^^^^^^^^^
+    lib/core/proxy_server.dart:161:39: Error: A value of type 'int?' can't be assigned to a variable of type 'num'.
+          _totalDownloadBytes += response.contentLength;
+                                          ^
+    lib/core/proxy_server.dart:161:27: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+          _totalDownloadBytes += response.contentLength;
+                              ^
+    lib/core/proxy_server.dart:231:33: Error: The method 'getInfo' isn't defined for the type 'ChinaIPDatabase'.
+     - 'ChinaIPDatabase' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'getInfo'.
+          'ipDatabase': _ipDatabase.getInfo(),
+                                    ^^^^^^^
+    lib/core/ech_client.dart:58:58: Error: The argument type 'HTTPSRecord' can't be assigned to the parameter type 'Record'.
+     - 'HTTPSRecord' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+     - 'Record' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+              final httpsRecord = DNSParser.parseHTTPSRecord(record);
+                                                             ^
+    lib/core/ech_client.dart:526:54: Error: The argument type 'HTTPSRecord' can't be assigned to the parameter type 'Record'.
+     - 'HTTPSRecord' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+     - 'Record' is from 'package:vpn_ech_wk_ios/core/dns_parser.dart' ('lib/core/dns_parser.dart').
+          final httpsRecord = DNSParser.parseHTTPSRecord(record);
+                                                         ^
+    lib/core/ech_client.dart:563:37: Error: The method 'request' isn't defined for the type 'Client'.
+     - 'Client' is from 'package:http/src/client.dart' ('../.pub-cache/hosted/pub.dev/http-1.6.0/lib/src/client.dart').
+    Try correcting the name to the name of an existing method, or defining a method named 'request'.
+          final response = await client.request(
+                                        ^^^^^^^
+    lib/core/socks5_server.dart:14:9: Error: 'ECHClient' isn't a type.
+      final ECHClient _echClient;
+            ^^^^^^^^^
+    lib/core/socks5_server.dart:20:3: Error: 'int64' isn't a type.
+      int64 _bytesTransferred = 0;
+      ^^^^^
+    lib/core/socks5_server.dart:98:33: Error: The method 'read' isn't defined for the type 'Socket'.
+     - 'Socket' is from 'dart:io'.
+    Try correcting the name to the name of an existing method, or defining a method named 'read'.
+          final data = await socket.read(257).timeout(Duration(seconds: 5));
+                                    ^^^^
+    lib/core/socks5_server.dart:113:33: Error: The method 'read' isn't defined for the type 'Socket'.
+     - 'Socket' is from 'dart:io'.
+    Try correcting the name to the name of an existing method, or defining a method named 'read'.
+          final data = await socket.read(262).timeout(Duration(seconds: 5));
+                                    ^^^^
+    lib/core/socks5_server.dart:133:58: Error: The argument type 'num' can't be assigned to the parameter type 'int?'.
+              final domain = String.fromCharCodes(data, 5, 5 + domainLen);
+                                                             ^
+    Target kernel_snapshot_program failed: Exception
+    Failed to package /Users/builder/clone.
+    Command PhaseScriptExecution failed with a nonzero exit code
+    note: Run script build phase 'Thin Binary' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')
+    note: Run script build phase 'Run Script' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')
+
+Encountered error while building for simulator.
+❌ 所有构建方法都失败了
+
+
+Build failed :|
+Step 7 script `Force Simulator Build` exited with status code 1
