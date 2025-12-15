@@ -5,6 +5,7 @@ workflows:
       vars:
         FLUTTER_VERSION: 3.38.5
         XCODE_VERSION: 26.1
+        APPLE_DEVELOPER_TEAM_ID: $APPLE_DEVELOPER_TEAM_ID
       xcode: latest
       cocoapods: default
     triggering:
@@ -26,15 +27,15 @@ workflows:
         script: |
           flutter pub get
           cd ios && pod install
-      - name: Build IPA (Development)
+      - name: Build iOS Simulator (No signing required)
         script: |
-          flutter build ios --release --no-codesign
+          flutter build ios --simulator --release
       - name: Archive build artifacts
         script: |
           mkdir -p $CM_BUILD_DIR/artifacts
-          cp -r build/ios/iphoneos/Runner.app $CM_BUILD_DIR/artifacts/
+          cp -r build/ios/iphonesimulator/Runner.app $CM_BUILD_DIR/artifacts/
     artifacts:
-      - build/ios/iphoneos/Runner.app
+      - build/ios/iphonesimulator/Runner.app
       - ios/Podfile.lock
 
   android-release:
