@@ -100,19 +100,41 @@ workflows:
         script: |
           echo "🔧 设置Flutter并安装依赖..."
 
-          # 回到根目录
-          cd ..
+          # 显示当前目录和结构
+          echo "当前工作目录: $(pwd)"
+          echo "目录结构:"
+          ls -la
+
+          # 检查是否在项目根目录
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "❌ 不在Flutter项目根目录！找不到 pubspec.yaml"
+            echo "尝试找到项目根目录..."
+            # 尝试找到包含pubspec.yaml的目录
+            find . -name "pubspec.yaml" -type f 2>/dev/null | head -1
+            exit 1
+          fi
+
+          echo "✅ 在Flutter项目根目录"
 
           # 运行Flutter的依赖安装
           echo "运行 flutter pub get..."
           flutter pub get
 
+          # 检查iOS目录是否存在
+          if [ ! -d "ios" ]; then
+            echo "❌ iOS目录不存在！"
+            exit 1
+          fi
+
           # 进入iOS目录
           cd ios
+          echo "已进入iOS目录: $(pwd)"
 
           # 检查Podfile是否存在
           if [ ! -f "Podfile" ]; then
             echo "❌ Podfile不存在！"
+            echo "iOS目录内容:"
+            ls -la
             exit 1
           fi
 
@@ -169,17 +191,38 @@ workflows:
         script: |
           echo "🚀 开始iOS模拟器构建..."
 
-          # 确保在正确的目录
+          # 检查当前位置并导航到项目根目录
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "不在项目根目录，尝试导航..."
+            # CodeMagic通常在clone目录中运行
+            if [ -d "clone" ]; then
+              cd clone
+            fi
+          fi
+
+          # 再次检查是否在正确的目录
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "❌ 仍然找不到项目根目录"
+            exit 1
+          fi
+
+          echo "当前目录: $(pwd)"
+
+          # 进入iOS目录
           cd ios
 
           # 验证必要文件存在
           if [ ! -f "Runner.xcworkspace" ]; then
             echo "❌ Runner.xcworkspace 不存在！"
+            echo "iOS目录内容:"
+            ls -la
             exit 1
           fi
 
           if [ ! -f "Pods/Manifest.lock" ]; then
             echo "❌ Manifest.lock 不存在！"
+            echo "Pods目录内容:"
+            ls -la Pods/ || echo "Pods目录不存在"
             exit 1
           fi
 
