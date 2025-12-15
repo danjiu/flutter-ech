@@ -10,8 +10,13 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  # 初始空的target - Flutter会在运行时添加插件
+  # 即使没有原生依赖，也要确保workspace被创建
+  # 这可以通过添加一个最小的依赖来实现
+  # 如果有Flutter插件需要原生支持，Flutter会在这里添加
 end
+
+# 确保workspace被创建
+install! 'cocoapods', :deterministic_uuids => false
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
