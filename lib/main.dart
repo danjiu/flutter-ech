@@ -30,8 +30,10 @@ void main() async {
 }
 
 Future<void> _requestPermissions() async {
-  // 请求网络状态权限
-  await Permission.network.request();
+  // 请求位置权限（用于网络状态判断）
+  if (await Permission.locationWhenInUse.isDenied) {
+    await Permission.locationWhenInUse.request();
+  }
 
   // 请求存储权限（Android）
   if (await Permission.storage.isDenied) {
@@ -41,6 +43,11 @@ Future<void> _requestPermissions() async {
   // 请求通知权限
   if (await Permission.notification.isDenied) {
     await Permission.notification.request();
+  }
+
+  // 请求VPN权限（iOS）
+  if (await Permission.vpn.isDenied) {
+    await Permission.vpn.request();
   }
 }
 
@@ -80,7 +87,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -112,7 +119,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: Colors.grey[800],
           elevation: 2,
           shape: RoundedRectangleBorder(
