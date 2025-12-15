@@ -179,22 +179,22 @@ workflows:
 
           # 检查生成的文件
           echo "检查生成的文件..."
-          ls -la *.xcworkspace || echo "没有找到xcworkspace文件"
-          ls -la *.xcodeproj || echo "没有找到xcodeproj文件"
+          ls -la *.xcworkspace 2>/dev/null || echo "没有找到xcworkspace目录"
+          ls -la *.xcodeproj 2>/dev/null || echo "没有找到xcodeproj目录"
 
-          # 如果workspace不存在，尝试使用xcodeproj
-          if [ -f "Runner.xcworkspace" ]; then
-            echo "✅ workspace 文件生成成功"
+          # 检查目录而不是文件（xcworkspace和xcodeproj都是目录）
+          if [ -d "Runner.xcworkspace" ]; then
+            echo "✅ workspace 目录生成成功"
             echo "生成的文件:"
-            ls -la *.xcworkspace
+            ls -la Runner.xcworkspace/
             ls -la Pods/ | head -10
-          elif [ -f "Runner.xcodeproj" ]; then
-            echo "✅ 找到 xcodeproj 文件，将使用它进行构建"
+          elif [ -d "Runner.xcodeproj" ]; then
+            echo "✅ 找到 xcodeproj 目录，将使用它进行构建"
             echo "生成的文件:"
-            ls -la *.xcodeproj
+            ls -la Runner.xcodeproj/
             ls -la Pods/ | head -10
           else
-            echo "❌ workspace 和 xcodeproj 文件都没有生成"
+            echo "❌ workspace 和 xcodeproj 目录都没有生成"
             echo "当前目录内容:"
             ls -la
             echo "查找任何项目文件:"
@@ -226,12 +226,12 @@ workflows:
           # 进入iOS目录
           cd ios
 
-          # 验证必要文件存在
-          if [ -f "Runner.xcworkspace" ]; then
+          # 验证必要文件存在（xcworkspace和xcodeproj是目录）
+          if [ -d "Runner.xcworkspace" ]; then
             PROJECT_FILE="Runner.xcworkspace"
             PROJECT_TYPE="workspace"
             echo "使用 workspace 文件"
-          elif [ -f "Runner.xcodeproj" ]; then
+          elif [ -d "Runner.xcodeproj" ]; then
             PROJECT_FILE="Runner.xcodeproj"
             PROJECT_TYPE="project"
             echo "使用 xcodeproj 文件"
