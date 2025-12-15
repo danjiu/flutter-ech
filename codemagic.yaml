@@ -140,25 +140,56 @@ workflows:
           export FLUTTER_TARGET_PLATFORM=ios-simulator
           export CODESIGNING_ALLOWED=NO
 
-          # 构建模拟器版本，明确指定设备
+          # 构建模拟器版本
           flutter clean
           flutter pub get
 
-          # 使用xcodebuild直接构建模拟器版本
-          xcodebuild -workspace ios/Runner.xcworkspace \
-            -scheme Runner \
-            -configuration Release \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
-            ONLY_ACTIVE_ARCH=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            ENABLE_BITCODE=NO \
-            build
+          # 首先检查可用的模拟器
+          echo "检查可用的iOS模拟器..."
+          xcrun simctl list devices available | grep iOS || echo "没有找到可用的模拟器"
 
-          # 如果xcodebuild失败，尝试Flutter方法
-          if [ $? -ne 0 ]; then
-            echo "Flutter fallback method..."
-            flutter build ios --simulator --release --no-codesign
+          # 尝试构建方法1：使用Flutter的默认模拟器
+          echo "方法1: 使用Flutter构建iOS模拟器版本..."
+          flutter build ios --simulator --release --no-codesign
+
+          # 检查Flutter构建是否成功
+          if [ -d "build/ios/iphonesimulator/Runner.app" ]; then
+            echo "✅ Flutter模拟器构建成功！"
+            echo "构建产物位置: build/ios/iphonesimulator/Runner.app"
+          else
+            echo "Flutter构建失败，尝试xcodebuild方法..."
+
+            # 方法2：使用通用目标而不是特定设备
+            echo "方法2: 使用xcodebuild通用模拟器目标..."
+            xcodebuild -workspace ios/Runner.xcworkspace \
+              -scheme Runner \
+              -configuration Release \
+              -sdk iphonesimulator \
+              -destination 'generic/platform=iOS Simulator' \
+              ONLY_ACTIVE_ARCH=NO \
+              CODE_SIGNING_ALLOWED=NO \
+              ENABLE_BITCODE=NO \
+              build || \
+
+            # 方法3：尝试使用任何可用的模拟器
+            echo "方法3: 使用任何可用的模拟器..."
+            xcodebuild -workspace ios/Runner.xcworkspace \
+              -scheme Runner \
+              -configuration Release \
+              -sdk iphonesimulator \
+              -destination 'platform=iOS Simulator' \
+              ONLY_ACTIVE_ARCH=NO \
+              CODE_SIGNING_ALLOWED=NO \
+              ENABLE_BITCODE=NO \
+              build
+
+            # 检查xcodebuild结果
+            if [ $? -eq 0 ]; then
+              echo "✅ xcodebuild模拟器构建成功！"
+            else
+              echo "❌ 所有构建方法都失败了"
+              exit 1
+            fi
           fi
 
       - name: Verify build
