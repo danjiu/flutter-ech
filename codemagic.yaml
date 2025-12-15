@@ -7,7 +7,7 @@ workflows:
         XCODE_VERSION: 26.1
         # 强制设置为模拟器构建
         FLUTTER_TARGET_PLATFORM: ios-simulator
-        CODESIGNING_ALLOWED: NO
+        CODESIGNING_ALLOWED=NO
       xcode: latest
       cocoapods: default
     triggering:
@@ -29,14 +29,63 @@ workflows:
 
       - name: Set up Flutter
         script: |
+          echo "⚙️ 设置Flutter 3.38.5..."
+
+          # 检查当前Flutter版本
+          echo "当前Flutter版本:"
           flutter --version
+
+          # 如果需要，切换到正确的Flutter版本
+          if ! flutter --version | grep -q "3.38.5"; then
+            echo "切换到Flutter 3.38.5..."
+            flutter channel stable
+            flutter upgrade 3.38.5
+          fi
+
+          # 再次确认版本
+          echo "最终Flutter版本:"
+          flutter --version
+
+          # 验证Dart SDK版本
+          echo "Dart版本:"
+          dart --version
+
+          # Flutter doctor
+          echo "Flutter doctor检查:"
           flutter doctor -v
+
           # 预热Flutter
+          echo "预加热Flutter..."
           flutter precache --ios
+          echo "✅ Flutter设置完成"
 
       - name: Install dependencies
         script: |
+          echo "📦 安装Flutter依赖..."
+
+          # 再次确认Flutter版本
+          flutter --version
+
+          # 清理缓存
+          flutter clean
+
+          # 获取依赖
+          echo "运行 flutter pub get..."
           flutter pub get
+
+          # 检查是否成功
+          if [ $? -eq 0 ]; then
+            echo "✅ Flutter依赖安装成功"
+          else
+            echo "❌ Flutter依赖安装失败，尝试解决方案..."
+            # 尝试升级依赖
+            flutter pub upgrade
+            # 再次尝试获取
+            flutter pub get
+          fi
+
+          echo "依赖验证:"
+          flutter pub deps
 
       - name: Fix iOS Podfile
         script: |
