@@ -177,13 +177,28 @@ workflows:
             exit 1
           fi
 
+          # 检查生成的文件
+          echo "检查生成的文件..."
+          ls -la *.xcworkspace || echo "没有找到xcworkspace文件"
+          ls -la *.xcodeproj || echo "没有找到xcodeproj文件"
+
+          # 如果workspace不存在，尝试使用xcodeproj
           if [ -f "Runner.xcworkspace" ]; then
             echo "✅ workspace 文件生成成功"
             echo "生成的文件:"
             ls -la *.xcworkspace
             ls -la Pods/ | head -10
+          elif [ -f "Runner.xcodeproj" ]; then
+            echo "✅ 找到 xcodeproj 文件，将使用它进行构建"
+            echo "生成的文件:"
+            ls -la *.xcodeproj
+            ls -la Pods/ | head -10
           else
-            echo "❌ workspace 文件未生成"
+            echo "❌ workspace 和 xcodeproj 文件都没有生成"
+            echo "当前目录内容:"
+            ls -la
+            echo "查找任何项目文件:"
+            find . -name "*.xcodeproj" -o -name "*.xcworkspace" 2>/dev/null
             exit 1
           fi
 
@@ -212,8 +227,16 @@ workflows:
           cd ios
 
           # 验证必要文件存在
-          if [ ! -f "Runner.xcworkspace" ]; then
-            echo "❌ Runner.xcworkspace 不存在！"
+          if [ -f "Runner.xcworkspace" ]; then
+            PROJECT_FILE="Runner.xcworkspace"
+            PROJECT_TYPE="workspace"
+            echo "使用 workspace 文件"
+          elif [ -f "Runner.xcodeproj" ]; then
+            PROJECT_FILE="Runner.xcodeproj"
+            PROJECT_TYPE="project"
+            echo "使用 xcodeproj 文件"
+          else
+            echo "❌ 找不到 Runner.xcworkspace 或 Runner.xcodeproj！"
             echo "iOS目录内容:"
             ls -la
             exit 1
@@ -226,21 +249,33 @@ workflows:
             exit 1
           fi
 
-          echo "✅ workspace 和 manifest lock 文件都存在"
+          echo "✅ 使用 $PROJECT_FILE: $PROJECT_TYPE"
 
           # 切换到Debug配置（Flutter的模拟器构建支持Debug模式）
           echo "使用Debug配置构建模拟器版本..."
 
           # 使用xcodebuild构建，指定Debug配置
-          xcodebuild -workspace Runner.xcworkspace \
-            -scheme Runner \
-            -configuration Debug \
-            -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' \
-            ONLY_ACTIVE_ARCH=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            ENABLE_BITCODE=NO \
-            build
+          if [ "$PROJECT_TYPE" = "workspace" ]; then
+            xcodebuild -workspace $PROJECT_FILE \
+              -scheme Runner \
+              -configuration Debug \
+              -sdk iphonesimulator \
+              -destination 'generic/platform=iOS Simulator' \
+              ONLY_ACTIVE_ARCH=NO \
+              CODE_SIGNING_ALLOWED=NO \
+              ENABLE_BITCODE=NO \
+              build
+          else
+            xcodebuild -project $PROJECT_FILE \
+              -scheme Runner \
+              -configuration Debug \
+              -sdk iphonesimulator \
+              -destination 'generic/platform=iOS Simulator' \
+              ONLY_ACTIVE_ARCH=NO \
+              CODE_SIGNING_ALLOWED=NO \
+              ENABLE_BITCODE=NO \
+              build
+          fi
 
           # 检查构建结果
           if [ $? -eq 0 ]; then
