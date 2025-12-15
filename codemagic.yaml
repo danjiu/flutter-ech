@@ -100,92 +100,125 @@ workflows:
         script: |
           echo "🔧 设置Flutter并安装依赖..."
 
-          # 让Flutter自动处理iOS依赖
+          # 回到根目录
+          cd ..
+
+          # 运行Flutter的依赖安装
+          echo "运行 flutter pub get..."
+          flutter pub get
+
+          # 进入iOS目录
           cd ios
 
-          # 清理旧的Pod文件
+          # 检查Podfile是否存在
+          if [ ! -f "Podfile" ]; then
+            echo "❌ Podfile不存在！"
+            exit 1
+          fi
+
+          echo "✅ Podfile存在"
+
+          # 清理可能损坏的文件
+          echo "清理旧的CocoaPods文件..."
           rm -rf Pods/
           rm -f Podfile.lock
           rm -f *.xcworkspace
 
-          # 回到根目录运行Flutter命令
-          cd ..
+          # 检查是否在正确的目录
+          echo "当前目录: $(pwd)"
+          echo "目录内容:"
+          ls -la
 
-          # 运行Flutter的iOS依赖安装
-          flutter pub get
+          # 更新CocoaPods仓库（如果需要）
+          echo "更新CocoaPods仓库..."
+          pod repo update || echo "pod repo update 失败，继续..."
 
-          # 使用Flutter的iOS设置
-          cd ios
-          echo "运行 flutter precache --ios..."
-          flutter precache --ios || echo "Flutter precache完成或跳过"
-
-          # 安装Pods（Flutter应该已经更新了Podfile）
+          # 运行pod install
           echo "运行 pod install..."
-          pod install --repo-update
+          pod install --verbose
 
-          # 检查结果
+          # 验证安装结果
+          echo "验证安装结果..."
+          if [ -f "Podfile.lock" ]; then
+            echo "✅ Podfile.lock 生成成功"
+          else
+            echo "❌ Podfile.lock 未生成"
+            exit 1
+          fi
+
+          if [ -f "Pods/Manifest.lock" ]; then
+            echo "✅ Manifest.lock 存在"
+          else
+            echo "❌ Manifest.lock 不存在"
+            echo "Pods目录内容:"
+            ls -la Pods/ || echo "Pods目录不存在"
+            exit 1
+          fi
+
           if [ -f "Runner.xcworkspace" ]; then
-            echo "✅ CocoaPods安装成功"
+            echo "✅ workspace 文件生成成功"
             echo "生成的文件:"
             ls -la *.xcworkspace
-            ls -la Pods/ || true
+            ls -la Pods/ | head -10
           else
-            echo "❌ CocoaPods安装失败，但没有Flutter插件也可能是正常的"
-            echo "继续构建过程..."
+            echo "❌ workspace 文件未生成"
+            exit 1
           fi
 
       - name: Force Simulator Build
         script: |
-          # 设置环境变量强制模拟器构建
-          export FLUTTER_TARGET_PLATFORM=ios-simulator
-          export CODESIGNING_ALLOWED=NO
+          echo "🚀 开始iOS模拟器构建..."
 
-          # 构建模拟器版本
-          flutter clean
-          flutter pub get
+          # 确保在正确的目录
+          cd ios
 
-          # 首先检查可用的模拟器
-          echo "检查可用的iOS模拟器..."
-          xcrun simctl list devices available | grep iOS || echo "没有找到可用的模拟器"
+          # 验证必要文件存在
+          if [ ! -f "Runner.xcworkspace" ]; then
+            echo "❌ Runner.xcworkspace 不存在！"
+            exit 1
+          fi
 
-          # 尝试构建方法1：使用Flutter的默认模拟器
-          echo "方法1: 使用Flutter构建iOS模拟器版本..."
-          flutter build ios --simulator --release --no-codesign
+          if [ ! -f "Pods/Manifest.lock" ]; then
+            echo "❌ Manifest.lock 不存在！"
+            exit 1
+          fi
 
-          # 检查Flutter构建是否成功
-          if [ -d "build/ios/iphonesimulator/Runner.app" ]; then
-            echo "✅ Flutter模拟器构建成功！"
-            echo "构建产物位置: build/ios/iphonesimulator/Runner.app"
+          echo "✅ workspace 和 manifest lock 文件都存在"
+
+          # 切换到Debug配置（Flutter的模拟器构建支持Debug模式）
+          echo "使用Debug配置构建模拟器版本..."
+
+          # 使用xcodebuild构建，指定Debug配置
+          xcodebuild -workspace Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            ENABLE_BITCODE=NO \
+            build
+
+          # 检查构建结果
+          if [ $? -eq 0 ]; then
+            echo "✅ iOS模拟器构建成功！"
+
+            # 查找构建产物
+            BUILD_PRODUCTS_DIR="/Users/builder/Library/Developer/Xcode/DerivedData/Runner-*/Build/Products/Debug-iphonesimulator"
+            if ls -la $BUILD_PRODUCTS_DIR/*.app 2>/dev/null; then
+              echo "📦 构建的app文件找到"
+              ls -la $BUILD_PRODUCTS_DIR/*.app
+            fi
           else
-            echo "Flutter构建失败，尝试xcodebuild方法..."
+            echo "❌ xcodebuild构建失败"
 
-            # 方法2：使用通用目标而不是特定设备
-            echo "方法2: 使用xcodebuild通用模拟器目标..."
-            xcodebuild -workspace ios/Runner.xcworkspace \
-              -scheme Runner \
-              -configuration Release \
-              -sdk iphonesimulator \
-              -destination 'generic/platform=iOS Simulator' \
-              ONLY_ACTIVE_ARCH=NO \
-              CODE_SIGNING_ALLOWED=NO \
-              ENABLE_BITCODE=NO \
-              build || \
+            # 尝试使用Flutter的方法
+            echo "尝试Flutter的模拟器构建..."
+            cd ..
+            flutter build ios --simulator --debug --no-codesign
 
-            # 方法3：尝试使用任何可用的模拟器
-            echo "方法3: 使用任何可用的模拟器..."
-            xcodebuild -workspace ios/Runner.xcworkspace \
-              -scheme Runner \
-              -configuration Release \
-              -sdk iphonesimulator \
-              -destination 'platform=iOS Simulator' \
-              ONLY_ACTIVE_ARCH=NO \
-              CODE_SIGNING_ALLOWED=NO \
-              ENABLE_BITCODE=NO \
-              build
-
-            # 检查xcodebuild结果
             if [ $? -eq 0 ]; then
-              echo "✅ xcodebuild模拟器构建成功！"
+              echo "✅ Flutter模拟器构建成功！"
             else
               echo "❌ 所有构建方法都失败了"
               exit 1
