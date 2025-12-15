@@ -6,49 +6,11 @@ platform :ios, '15.0'
 # Uncomment the following line to disable CocoaPods analytics.
 # ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
-# 集成Flutter插件
-def flutter_root
-  defined_xcode_path = nil
-  if File.exist?(File.expand_path('../../.flutter-plugins', __FILE__))
-    File.foreach(File.expand_path('../../.flutter-plugins', __FILE__)) do |line|
-      plugin = line.split(' ')[0]
-      path = plugin.split('=')[1]
-      if path.include?('/flutter/')
-        defined_xcode_path = File.expand_path(path + '/packages/flutter_tools/bin/xcode_backend.sh', __FILE__)
-        break
-      end
-    end
-  end
-  defined_xcode_path ||= File.expand_path(File.join(File.dirname(__FILE__), '../../flutter/packages/flutter_tools/bin/xcode_backend.sh'))
-  File.exist?(defined_xcode_path) ? File.expand_path(File.join(File.dirname(defined_xcode_path), '..')) : nil
-end
-
-# 检查Flutter是否可用并加载插件helper
-require File.join(flutter_root, 'lib', 'flutter', 'podhelper.rb') if flutter_root
-
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  # 自动安装Flutter插件
-  begin
-    if flutter_root
-      install_all_flutter_pods File.dirname(File.realpath(__FILE__))
-    else
-      # 如果flutter helper不可用，手动声明插件
-      # 这些是基于pubspec.yaml中的依赖
-      pod 'flutter_vpn'
-      pod 'permission_handler'
-      pod 'flutter_secure_storage'
-    end
-  rescue => e
-    puts "Flutter插件安装失败: #{e}"
-    puts "尝试手动安装插件..."
-    # 备用手动安装
-    pod 'flutter_vpn'
-    pod 'permission_handler'
-    pod 'flutter_secure_storage'
-  end
+  # 初始空的target - Flutter会在运行时添加插件
 end
 
 post_install do |installer|
