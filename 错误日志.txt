@@ -33,9 +33,9 @@ CreateBuildDescription
 
 ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x c -c /dev/null
 
-ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x c -c /dev/null
-
 ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x c -c /dev/null
 
 ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x objective-c -c /dev/null
 
@@ -51,23 +51,23 @@ ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/X
 
 ExecuteExternalTool /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch x86_64 -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -x objective-c -c /dev/null
 
-Build description signature: 3b9252bfaedd526a957ffea4533c368f
-Build description path: /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/XCBuildData/3b9252bfaedd526a957ffea4533c368f.xcbuilddata
-CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
-    cd /Users/builder/clone/ios
-    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
-
+Build description signature: 7fe4ed6af303a8c4487afec4595c32e1
+Build description path: /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/XCBuildData/7fe4ed6af303a8c4487afec4595c32e1.xcbuilddata
 CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
     cd /Users/builder/clone/ios
     builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products
+
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex
 
 ClangStatCache /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk /Users/builder/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.1-23B77-3db4f1cf0fd34ab1c3d11b67df3df23b.sdkstatcache
     cd /Users/builder/clone/ios
     /Applications/Xcode-26.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -o /Users/builder/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.1-23B77-3db4f1cf0fd34ab1c3d11b67df3df23b.sdkstatcache
 
-CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/ExplicitPrecompiledModules
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner-18c1723432283e0cc55f10a6dcfd9e02-VFS-iphonesimulator/all-product-headers.yaml
     cd /Users/builder/clone/ios
-    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner-18c1723432283e0cc55f10a6dcfd9e02-VFS-iphonesimulator/all-product-headers.yaml
 
 CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
     cd /Users/builder/clone/ios
@@ -77,33 +77,21 @@ CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-e
     cd /Users/builder/clone/ios
     builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
 
+CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/builder/clone/ios
+    builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
 CreateBuildDirectory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
     cd /Users/builder/clone/ios
     builtin-create-build-directory /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
 
-WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner-18c1723432283e0cc55f10a6dcfd9e02-VFS-iphonesimulator/all-product-headers.yaml
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D5D238D759B680907AF8848A.sh (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
-    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner-18c1723432283e0cc55f10a6dcfd9e02-VFS-iphonesimulator/all-product-headers.yaml
-
-WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D6F0DDFE6317F4B97EAB87DF.sh (in target 'Runner' from project 'Runner')
-    cd /Users/builder/clone/ios
-    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D6F0DDFE6317F4B97EAB87DF.sh
-
-WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap (in target 'Runner' from project 'Runner')
-    cd /Users/builder/clone/ios
-    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap
-
-WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.hmap (in target 'Runner' from project 'Runner')
-    cd /Users/builder/clone/ios
-    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.hmap
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D5D238D759B680907AF8848A.sh
 
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
     write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh
-
-WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap (in target 'Runner' from project 'Runner')
-    cd /Users/builder/clone/ios
-    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap
 
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-3B06AD1E1E4923F5004D2608.sh (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
@@ -113,9 +101,21 @@ WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-eda
     cd /Users/builder/clone/ios
     write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyStaticMetadataFileList
 
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.hmap
+
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyMetadataFileList (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
     write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap
+
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap
 
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
@@ -175,6 +175,11 @@ WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-eda
     write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/x86_64/7187679823f38a2a940e0043cdf9d637-common-args.resp
 -target x86_64-apple-ios13.0-simulator '-std=gnu99' -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -fasm-blocks -g -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/x86_64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/x86_64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
 
+WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp (in target 'Runner' from project 'Runner')
+    cd /Users/builder/clone/ios
+    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+-target arm64-apple-ios13.0-simulator '-std=gnu99' -fobjc-arc -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' '-DOBJC_OLD_DISPATCH_PROTOTYPES=0' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -g '-fobjc-abi-version=2' -fobjc-legacy-dispatch -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
+
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner_const_extract_protocols.json (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
     write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner_const_extract_protocols.json
@@ -182,11 +187,6 @@ WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-eda
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftFileList (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
     write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftFileList
-
-WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp (in target 'Runner' from project 'Runner')
-    cd /Users/builder/clone/ios
-    write-file /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp
--target arm64-apple-ios13.0-simulator '-std=gnu99' -fobjc-arc -fmodules -gmodules '-fmodules-cache-path=/Users/builder/Library/Developer/Xcode/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DCOCOAPODS=1' '-DOBJC_OLD_DISPATCH_PROTOTYPES=0' -isysroot /Applications/Xcode-26.1.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.1.sdk -g '-fobjc-abi-version=2' -fobjc-legacy-dispatch -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-generated-files.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-own-target-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-all-target-headers.hmap -iquote /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Runner-project-headers.hmap -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/include -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources-normal/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources/arm64 -I/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/DerivedSources -F/Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator
 
 WriteAuxiliaryFile /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Objects-normal/arm64/Runner.SwiftConstValuesFileList (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
@@ -213,9 +213,9 @@ MkDir /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheq
     cd /Users/builder/clone/ios
     /bin/mkdir -p /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Products/Debug-iphonesimulator/Runner.app
 
-PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D6F0DDFE6317F4B97EAB87DF.sh (in target 'Runner' from project 'Runner')
+PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D5D238D759B680907AF8848A.sh (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
-    /bin/sh -c /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D6F0DDFE6317F4B97EAB87DF.sh
+    /bin/sh -c /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D5D238D759B680907AF8848A.sh
 
 PhaseScriptExecution Run\ Script /Users/builder/Library/Developer/Xcode/DerivedData/Runner-edaimyiflreloheqntgnhkmwcclv/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-9740EEB61CF901F6004384FC.sh (in target 'Runner' from project 'Runner')
     cd /Users/builder/clone/ios
@@ -807,230 +807,32 @@ PhaseScriptExecution Run\ Script /Users/builder/Library/Developer/Xcode/DerivedD
 /Users/builder/clone/ios/Runner/AppDelegate.swift:15: warning: Flutter deprecation: Accessing rootViewController in `application:didFinishLaunchingWithOptions:` [flutter-launch-rootvc].
 	note: 
 	After the UISceneDelegate migration the `UIApplicationDelegate.window` and `UIWindow.rootViewController` properties will not be set in `application:didFinishLaunchingWithOptions:`. If you are relying on that in order to register platform channels at application launch use the `FlutterPluginRegistry` API instead. Other setup can be moved to a FlutterViewController subclass (ex: `awakeFromNib`).
-lib/core/china_ip_database.dart:350:17: Error: Can't find '}' to match '{'.
-    } catch (e) {
-                ^
-lib/core/china_ip_database.dart:336:41: Error: Can't find '}' to match '{'.
-  Future<void> saveToLocalCache() async {
-                                        ^
-lib/core/china_ip_database.dart:293:28: Error: Can't find '}' to match '{'.
-  int? _ipToInt(String ip) {
-                           ^
-lib/core/china_ip_database.dart:272:38: Error: Can't find '}' to match '{'.
-    for (final range in _ipv6Ranges) {
-                                     ^
-lib/core/china_ip_database.dart:269:33: Error: Can't find '}' to match '{'.
-  bool isChineseIPv6(String ip) {
-                                ^
-lib/core/china_ip_database.dart:267:33: Error: Can't find '}' to match '{'.
-  bool isChineseIPv6(String ip) {
-                                ^
-lib/core/china_ip_database.dart:239:27: Error: Can't find '}' to match '{'.
-    while (left <= right) {
-                          ^
-lib/core/china_ip_database.dart:224:33: Error: Can't find '}' to match '{'.
-  bool isChineseIPv4(String ip) {
-                                ^
-lib/core/china_ip_database.dart:222:33: Error: Can't find '}' to match '{'.
-  bool isChineseIPv4(String ip) {
-                                ^
-lib/core/china_ip_database.dart:13:1: Error: Classes can't be declared inside other classes.
-Try moving the class to the top-level.
-class IpRange {
-^^^^^
-lib/core/china_ip_database.dart:27:1: Error: Classes can't be declared inside other classes.
-Try moving the class to the top-level.
-class IpRangeV6 {
-^^^^^
-lib/core/china_ip_database.dart:59:1: Error: Classes can't be declared inside other classes.
-Try moving the class to the top-level.
-class ChinaIPDatabase {
-^^^^^
-lib/core/proxy_server.dart:30:9: Error: Type 'ChinaIPDatabase' not found.
-  final ChinaIPDatabase _ipDatabase = ChinaIPDatabase.instance;
-        ^^^^^^^^^^^^^^^
-lib/main.dart:49:24: Error: Member not found: 'vpn'.
-  if (await Permission.vpn.isDenied) {
-                       ^^^
-lib/main.dart:50:22: Error: Member not found: 'vpn'.
-    await Permission.vpn.request();
-                     ^^^
-lib/services/vpn_service.dart:60:23: Error: The method 'toLowerCase' isn't defined for the type 'FlutterVpnState'.
- - 'FlutterVpnState' is from 'package:flutter_vpn/state.dart' ('../.pub-cache/hosted/pub.dev/flutter_vpn-0.13.0/lib/state.dart').
-Try correcting the name to the name of an existing method, or defining a method named 'toLowerCase'.
-        switch (state.toLowerCase()) {
-                      ^^^^^^^^^^^
-lib/services/vpn_service.dart:145:26: Error: Member not found: 'FlutterVpn.connect'.
-        await FlutterVpn.connect(
-                         ^^^^^^^
-lib/services/certificate_service.dart:44:39: Error: The method 'generateCertificate' isn't defined for the type 'CertificateService'.
+lib/services/vpn_service.dart:240:24: Error: Type 'FlutterVpnState' not found.
+  void _updateVpnState(FlutterVpnState state) {
+                       ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:240:24: Error: 'FlutterVpnState' isn't a type.
+  void _updateVpnState(FlutterVpnState state) {
+                       ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:243:12: Error: Not a constant expression.
+      case FlutterVpnState.disconnected:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:246:12: Error: Not a constant expression.
+      case FlutterVpnState.connecting:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:249:12: Error: Not a constant expression.
+      case FlutterVpnState.connected:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:253:12: Error: Not a constant expression.
+      case FlutterVpnState.disconnecting:
+           ^^^^^^^^^^^^^^^
+lib/services/vpn_service.dart:256:12: Error: Not a constant expression.
+      case FlutterVpnState.error:
+           ^^^^^^^^^^^^^^^
+lib/services/certificate_service.dart:44:34: Error: The getter 'CertificatePlatformChannel' isn't defined for the type 'CertificateService'.
  - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
-Try correcting the name to the name of an existing method, or defining a method named 'generateCertificate'.
-      final certificates = await this.generateCertificate(
-                                      ^^^^^^^^^^^^^^^^^^^
-lib/core/proxy_server.dart:30:9: Error: 'ChinaIPDatabase' isn't a type.
-  final ChinaIPDatabase _ipDatabase = ChinaIPDatabase.instance;
-        ^^^^^^^^^^^^^^^
-lib/core/proxy_server.dart:30:39: Error: Undefined name 'ChinaIPDatabase'.
-  final ChinaIPDatabase _ipDatabase = ChinaIPDatabase.instance;
-                                      ^^^^^^^^^^^^^^^
-lib/core/china_ip_database.dart:162:5: Error: The getter '_ipv4Ranges' isn't defined for the type 'IpRangeV6'.
- - 'IpRangeV6' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
-Try correcting the name to the name of an existing getter, or defining a getter or field named '_ipv4Ranges'.
-    _ipv4Ranges.addAll(defaultRanges);
-    ^^^^^^^^^^^
-lib/core/china_ip_database.dart:171:13: Error: 'data' is already declared in this scope.
-      final data = await rootBundle.loadString('assets/data/china_ipv6.txt');
-            ^^^^
-lib/core/china_ip_database.dart:169:13: Context: Previous declaration of 'data'.
-      final data = await rootBundle.loadString('assets/data/china_ipv6.txt');
-            ^^^^
-lib/core/china_ip_database.dart:172:13: Error: 'lines' is already declared in this scope.
-      final lines = data.split('\n');
-            ^^^^^
-lib/core/china_ip_database.dart:170:13: Context: Previous declaration of 'lines'.
-      final lines = data.split('\n');
-            ^^^^^
-lib/core/china_ip_database.dart:182:33: Error: Member not found: 'IpRangeV6.fromCIDR'.
-        final range = IpRangeV6.fromCIDR(parts[0], int.parse(parts[1]));
-                                ^^^^^^^^
-lib/core/china_ip_database.dart:188:33: Error: Member not found: 'IpRangeV6.fromCIDR'.
-        final range = IpRangeV6.fromCIDR(parts[0], int.parse(parts[1]));
-                                ^^^^^^^^
-lib/core/china_ip_database.dart:183:9: Error: The getter '_ipv6Ranges' isn't defined for the type 'IpRangeV6'.
- - 'IpRangeV6' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
-Try correcting the name to the name of an existing getter, or defining a getter or field named '_ipv6Ranges'.
-        _ipv6Ranges.add(range);
-        ^^^^^^^^^^^
-lib/core/china_ip_database.dart:189:9: Error: The getter '_ipv6Ranges' isn't defined for the type 'IpRangeV6'.
- - 'IpRangeV6' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
-Try correcting the name to the name of an existing getter, or defining a getter or field named '_ipv6Ranges'.
-        _ipv6Ranges.add(range);
-        ^^^^^^^^^^^
-lib/core/china_ip_database.dart:201:17: Error: Member not found: 'IpRangeV6.fromCIDR'.
-      IpRangeV6.fromCIDR('2001:db8::', 32),
-                ^^^^^^^^
-lib/core/china_ip_database.dart:213:17: Error: Member not found: 'IpRangeV6.fromCIDR'.
-      IpRangeV6.fromCIDR('2001:db8::', 32),
-                ^^^^^^^^
-lib/core/china_ip_database.dart:217:5: Error: Undefined name '_ipv6Ranges'.
-    _ipv6Ranges.addAll(defaultRanges);
-    ^^^^^^^^^^^
-lib/core/china_ip_database.dart:218:5: Error: Undefined name '_ipv6Ranges'.
-    _ipv6Ranges.addAll(defaultRanges);
-    ^^^^^^^^^^^
-lib/core/china_ip_database.dart:225:10: Error: Undefined name '_isInitialized'.
-    if (!_isInitialized) return false;
-         ^^^^^^^^^^^^^^
-lib/core/china_ip_database.dart:227:19: Error: Method not found: '_ipToInt'.
-    final ipInt = _ipToInt(ip);
-                  ^^^^^^^^
-lib/core/china_ip_database.dart:229:19: Error: Method not found: '_ipToInt'.
-    final ipInt = _ipToInt(ip);
-                  ^^^^^^^^
-lib/core/china_ip_database.dart:229:11: Error: 'ipInt' is already declared in this scope.
-    final ipInt = _ipToInt(ip);
-          ^^^^^
-lib/core/china_ip_database.dart:227:11: Context: Previous declaration of 'ipInt'.
-    final ipInt = _ipToInt(ip);
-          ^^^^^
-lib/core/china_ip_database.dart:234:17: Error: Undefined name '_ipv4Ranges'.
-    int right = _ipv4Ranges.length - 1;
-                ^^^^^^^^^^^
-lib/core/china_ip_database.dart:236:9: Error: 'left' is already declared in this scope.
-    int left = 0;
-        ^^^^
-lib/core/china_ip_database.dart:233:9: Context: Previous declaration of 'left'.
-    int left = 0;
-        ^^^^
-lib/core/china_ip_database.dart:237:17: Error: Undefined name '_ipv4Ranges'.
-    int right = _ipv4Ranges.length - 1;
-                ^^^^^^^^^^^
-lib/core/china_ip_database.dart:237:9: Error: 'right' is already declared in this scope.
-    int right = _ipv4Ranges.length - 1;
-        ^^^^^
-lib/core/china_ip_database.dart:234:9: Context: Previous declaration of 'right'.
-    int right = _ipv4Ranges.length - 1;
-        ^^^^^
-lib/core/china_ip_database.dart:241:21: Error: Undefined name '_ipv4Ranges'.
-      final range = _ipv4Ranges[mid];
-                    ^^^^^^^^^^^
-lib/core/china_ip_database.dart:244:21: Error: Undefined name '_ipv4Ranges'.
-      final range = _ipv4Ranges[mid];
-                    ^^^^^^^^^^^
-lib/core/china_ip_database.dart:270:10: Error: Undefined name '_isInitialized'.
-    if (!_isInitialized) return false;
-         ^^^^^^^^^^^^^^
-lib/core/china_ip_database.dart:272:25: Error: Undefined name '_ipv6Ranges'.
-    for (final range in _ipv6Ranges) {
-                        ^^^^^^^^^^^
-lib/core/china_ip_database.dart:274:25: Error: Undefined name '_ipv6Ranges'.
-    for (final range in _ipv6Ranges) {
-                        ^^^^^^^^^^^
-lib/core/china_ip_database.dart:342:17: Error: Undefined name '_ipv4Ranges'.
-        'ipv4': _ipv4Ranges.map((r) => [r.start, r.end]).toList(),
-                ^^^^^^^^^^^
-lib/core/china_ip_database.dart:343:17: Error: Undefined name '_ipv6Ranges'.
-        'ipv6': _ipv6Ranges.map((r) => [
-                ^^^^^^^^^^^
-lib/core/china_ip_database.dart:359:17: Error: Undefined name '_ipv4Ranges'.
-        'ipv4': _ipv4Ranges.map((r) => [r.start, r.end]).toList(),
-                ^^^^^^^^^^^
-lib/core/china_ip_database.dart:360:17: Error: Undefined name '_ipv6Ranges'.
-        'ipv6': _ipv6Ranges.map((r) => [
-                ^^^^^^^^^^^
-lib/core/china_ip_database.dart:383:7: Error: Setter not found: '_ipv4Ranges'.
-      _ipv4Ranges = (cache['ipv4'] as List)
-      ^^^^^^^^^^^
-lib/core/china_ip_database.dart:388:32: Error: Too many positional arguments: 0 allowed, but 2 found.
-Try removing the extra positional arguments.
-          .map((r) => IpRangeV6(
-                               ^
-lib/core/china_ip_database.dart:23:7: Context: The class 'IpRangeV6' has a constructor that takes no arguments.
-class IpRangeV6 {
-      ^
-lib/core/china_ip_database.dart:387:7: Error: Setter not found: '_ipv6Ranges'.
-      _ipv6Ranges = (cache['ipv6'] as List)
-      ^^^^^^^^^^^
-lib/core/china_ip_database.dart:394:7: Error: Setter not found: '_isInitialized'.
-      _isInitialized = true;
-      ^^^^^^^^^^^^^^
-lib/core/china_ip_database.dart:409:7: Error: Setter not found: '_ipv4Ranges'.
-      _ipv4Ranges = (cache['ipv4'] as List)
-      ^^^^^^^^^^^
-lib/core/china_ip_database.dart:414:32: Error: Too many positional arguments: 0 allowed, but 2 found.
-Try removing the extra positional arguments.
-          .map((r) => IpRangeV6(
-                               ^
-lib/core/china_ip_database.dart:23:7: Context: The class 'IpRangeV6' has a constructor that takes no arguments.
-class IpRangeV6 {
-      ^
-lib/core/china_ip_database.dart:413:7: Error: Setter not found: '_ipv6Ranges'.
-      _ipv6Ranges = (cache['ipv6'] as List)
-      ^^^^^^^^^^^
-lib/core/china_ip_database.dart:420:7: Error: Setter not found: '_isInitialized'.
-      _isInitialized = true;
-      ^^^^^^^^^^^^^^
-lib/core/china_ip_database.dart:269:3: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-  bool isChineseIPv6(String ip) {
-  ^
-lib/core/china_ip_database.dart:267:3: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-  bool isChineseIPv6(String ip) {
-  ^
-lib/core/china_ip_database.dart:224:3: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-  bool isChineseIPv4(String ip) {
-  ^
-lib/core/china_ip_database.dart:222:8: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-  bool isChineseIPv4(String ip) {
-       ^
-lib/core/china_ip_database.dart:24:19: Error: Final field 'start' is not initialized.
-Try to initialize the field in the declaration or in every constructor.
-  final Uint8List start;
-                  ^^^^^
-lib/core/china_ip_database.dart:25:19: Error: Final field 'end' is not initialized.
-Try to initialize the field in the declaration or in every constructor.
-  final Uint8List end;
-                  ^^^
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'CertificatePlatformChannel'.
+      final certificates = await CertificatePlatformChannel.generateCertificate(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Target kernel_snapshot_program failed: Exception
 Failed to package /Users/builder/clone.
 Command PhaseScriptExecution failed with a nonzero exit code
@@ -1047,9 +849,9 @@ The following build commands failed:
 ❌ xcodebuild构建失败
 尝试Flutter的模拟器构建...
 Building com.example.vpnEchWkIos for simulator (ios)...
-Running pod install...                                             422ms
+Running pod install...                                             441ms
 Running Xcode build...                                          
-Xcode build done.                                            7.3s
+Xcode build done.                                            7.7s
 Failed to build iOS app
 Error output from Xcode build:
 ↳
@@ -1059,235 +861,37 @@ Error output from Xcode build:
 Xcode's output:
 ↳
     Writing result bundle at path:
-    	/var/folders/w2/rrf5p87d1bbfyphxc7jdnyvh0000gn/T/flutter_tools.DZRyCQ/flutter_ios_build_temp_dirXaX9Mz/temporary_xcresult_bundle
+    	/var/folders/w2/rrf5p87d1bbfyphxc7jdnyvh0000gn/T/flutter_tools.HXLtvj/flutter_ios_build_temp_dir9vjxOZ/temporary_xcresult_bundle
 
     /Users/builder/clone/ios/Runner/AppDelegate.swift:15: warning: Flutter deprecation: Accessing rootViewController in `application:didFinishLaunchingWithOptions:` [flutter-launch-rootvc].
     	note: 
     	After the UISceneDelegate migration the `UIApplicationDelegate.window` and `UIWindow.rootViewController` properties will not be set in `application:didFinishLaunchingWithOptions:`. If you are relying on that in order to register platform channels at application launch use the `FlutterPluginRegistry` API instead. Other setup can be moved to a FlutterViewController subclass (ex: `awakeFromNib`).
-    lib/core/china_ip_database.dart:350:17: Error: Can't find '}' to match '{'.
-        } catch (e) {
-                    ^
-    lib/core/china_ip_database.dart:336:41: Error: Can't find '}' to match '{'.
-      Future<void> saveToLocalCache() async {
-                                            ^
-    lib/core/china_ip_database.dart:293:28: Error: Can't find '}' to match '{'.
-      int? _ipToInt(String ip) {
-                               ^
-    lib/core/china_ip_database.dart:272:38: Error: Can't find '}' to match '{'.
-        for (final range in _ipv6Ranges) {
-                                         ^
-    lib/core/china_ip_database.dart:269:33: Error: Can't find '}' to match '{'.
-      bool isChineseIPv6(String ip) {
-                                    ^
-    lib/core/china_ip_database.dart:267:33: Error: Can't find '}' to match '{'.
-      bool isChineseIPv6(String ip) {
-                                    ^
-    lib/core/china_ip_database.dart:239:27: Error: Can't find '}' to match '{'.
-        while (left <= right) {
-                              ^
-    lib/core/china_ip_database.dart:224:33: Error: Can't find '}' to match '{'.
-      bool isChineseIPv4(String ip) {
-                                    ^
-    lib/core/china_ip_database.dart:222:33: Error: Can't find '}' to match '{'.
-      bool isChineseIPv4(String ip) {
-                                    ^
-    lib/core/china_ip_database.dart:13:1: Error: Classes can't be declared inside other classes.
-    Try moving the class to the top-level.
-    class IpRange {
-    ^^^^^
-    lib/core/china_ip_database.dart:27:1: Error: Classes can't be declared inside other classes.
-    Try moving the class to the top-level.
-    class IpRangeV6 {
-    ^^^^^
-    lib/core/china_ip_database.dart:59:1: Error: Classes can't be declared inside other classes.
-    Try moving the class to the top-level.
-    class ChinaIPDatabase {
-    ^^^^^
-    lib/core/proxy_server.dart:30:9: Error: Type 'ChinaIPDatabase' not found.
-      final ChinaIPDatabase _ipDatabase = ChinaIPDatabase.instance;
-            ^^^^^^^^^^^^^^^
-    lib/main.dart:49:24: Error: Member not found: 'vpn'.
-      if (await Permission.vpn.isDenied) {
-                           ^^^
-    lib/main.dart:50:22: Error: Member not found: 'vpn'.
-        await Permission.vpn.request();
-                         ^^^
-    lib/services/vpn_service.dart:60:23: Error: The method 'toLowerCase' isn't defined for the type 'FlutterVpnState'.
-     - 'FlutterVpnState' is from 'package:flutter_vpn/state.dart' ('../.pub-cache/hosted/pub.dev/flutter_vpn-0.13.0/lib/state.dart').
-    Try correcting the name to the name of an existing method, or defining a method named 'toLowerCase'.
-            switch (state.toLowerCase()) {
-                          ^^^^^^^^^^^
-    lib/services/vpn_service.dart:145:26: Error: Member not found: 'FlutterVpn.connect'.
-            await FlutterVpn.connect(
-                             ^^^^^^^
-    lib/services/certificate_service.dart:44:39: Error: The method 'generateCertificate' isn't defined for the type 'CertificateService'.
+    lib/services/vpn_service.dart:240:24: Error: Type 'FlutterVpnState' not found.
+      void _updateVpnState(FlutterVpnState state) {
+                           ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:240:24: Error: 'FlutterVpnState' isn't a type.
+      void _updateVpnState(FlutterVpnState state) {
+                           ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:243:12: Error: Not a constant expression.
+          case FlutterVpnState.disconnected:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:246:12: Error: Not a constant expression.
+          case FlutterVpnState.connecting:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:249:12: Error: Not a constant expression.
+          case FlutterVpnState.connected:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:253:12: Error: Not a constant expression.
+          case FlutterVpnState.disconnecting:
+               ^^^^^^^^^^^^^^^
+    lib/services/vpn_service.dart:256:12: Error: Not a constant expression.
+          case FlutterVpnState.error:
+               ^^^^^^^^^^^^^^^
+    lib/services/certificate_service.dart:44:34: Error: The getter 'CertificatePlatformChannel' isn't defined for the type 'CertificateService'.
      - 'CertificateService' is from 'package:vpn_ech_wk_ios/services/certificate_service.dart' ('lib/services/certificate_service.dart').
-    Try correcting the name to the name of an existing method, or defining a method named 'generateCertificate'.
-          final certificates = await this.generateCertificate(
-                                          ^^^^^^^^^^^^^^^^^^^
-    lib/core/proxy_server.dart:30:9: Error: 'ChinaIPDatabase' isn't a type.
-      final ChinaIPDatabase _ipDatabase = ChinaIPDatabase.instance;
-            ^^^^^^^^^^^^^^^
-    lib/core/proxy_server.dart:30:39: Error: Undefined name 'ChinaIPDatabase'.
-      final ChinaIPDatabase _ipDatabase = ChinaIPDatabase.instance;
-                                          ^^^^^^^^^^^^^^^
-    lib/core/china_ip_database.dart:162:5: Error: The getter '_ipv4Ranges' isn't defined for the type 'IpRangeV6'.
-     - 'IpRangeV6' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
-    Try correcting the name to the name of an existing getter, or defining a getter or field named '_ipv4Ranges'.
-        _ipv4Ranges.addAll(defaultRanges);
-        ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:171:13: Error: 'data' is already declared in this scope.
-          final data = await rootBundle.loadString('assets/data/china_ipv6.txt');
-                ^^^^
-    lib/core/china_ip_database.dart:169:13: Context: Previous declaration of 'data'.
-          final data = await rootBundle.loadString('assets/data/china_ipv6.txt');
-                ^^^^
-    lib/core/china_ip_database.dart:172:13: Error: 'lines' is already declared in this scope.
-          final lines = data.split('\n');
-                ^^^^^
-    lib/core/china_ip_database.dart:170:13: Context: Previous declaration of 'lines'.
-          final lines = data.split('\n');
-                ^^^^^
-    lib/core/china_ip_database.dart:182:33: Error: Member not found: 'IpRangeV6.fromCIDR'.
-            final range = IpRangeV6.fromCIDR(parts[0], int.parse(parts[1]));
-                                    ^^^^^^^^
-    lib/core/china_ip_database.dart:188:33: Error: Member not found: 'IpRangeV6.fromCIDR'.
-            final range = IpRangeV6.fromCIDR(parts[0], int.parse(parts[1]));
-                                    ^^^^^^^^
-    lib/core/china_ip_database.dart:183:9: Error: The getter '_ipv6Ranges' isn't defined for the type 'IpRangeV6'.
-     - 'IpRangeV6' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
-    Try correcting the name to the name of an existing getter, or defining a getter or field named '_ipv6Ranges'.
-            _ipv6Ranges.add(range);
-            ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:189:9: Error: The getter '_ipv6Ranges' isn't defined for the type 'IpRangeV6'.
-     - 'IpRangeV6' is from 'package:vpn_ech_wk_ios/core/china_ip_database.dart' ('lib/core/china_ip_database.dart').
-    Try correcting the name to the name of an existing getter, or defining a getter or field named '_ipv6Ranges'.
-            _ipv6Ranges.add(range);
-            ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:201:17: Error: Member not found: 'IpRangeV6.fromCIDR'.
-          IpRangeV6.fromCIDR('2001:db8::', 32),
-                    ^^^^^^^^
-    lib/core/china_ip_database.dart:213:17: Error: Member not found: 'IpRangeV6.fromCIDR'.
-          IpRangeV6.fromCIDR('2001:db8::', 32),
-                    ^^^^^^^^
-    lib/core/china_ip_database.dart:217:5: Error: Undefined name '_ipv6Ranges'.
-        _ipv6Ranges.addAll(defaultRanges);
-        ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:218:5: Error: Undefined name '_ipv6Ranges'.
-        _ipv6Ranges.addAll(defaultRanges);
-        ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:225:10: Error: Undefined name '_isInitialized'.
-        if (!_isInitialized) return false;
-             ^^^^^^^^^^^^^^
-    lib/core/china_ip_database.dart:227:19: Error: Method not found: '_ipToInt'.
-        final ipInt = _ipToInt(ip);
-                      ^^^^^^^^
-    lib/core/china_ip_database.dart:229:19: Error: Method not found: '_ipToInt'.
-        final ipInt = _ipToInt(ip);
-                      ^^^^^^^^
-    lib/core/china_ip_database.dart:229:11: Error: 'ipInt' is already declared in this scope.
-        final ipInt = _ipToInt(ip);
-              ^^^^^
-    lib/core/china_ip_database.dart:227:11: Context: Previous declaration of 'ipInt'.
-        final ipInt = _ipToInt(ip);
-              ^^^^^
-    lib/core/china_ip_database.dart:234:17: Error: Undefined name '_ipv4Ranges'.
-        int right = _ipv4Ranges.length - 1;
-                    ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:236:9: Error: 'left' is already declared in this scope.
-        int left = 0;
-            ^^^^
-    lib/core/china_ip_database.dart:233:9: Context: Previous declaration of 'left'.
-        int left = 0;
-            ^^^^
-    lib/core/china_ip_database.dart:237:17: Error: Undefined name '_ipv4Ranges'.
-        int right = _ipv4Ranges.length - 1;
-                    ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:237:9: Error: 'right' is already declared in this scope.
-        int right = _ipv4Ranges.length - 1;
-            ^^^^^
-    lib/core/china_ip_database.dart:234:9: Context: Previous declaration of 'right'.
-        int right = _ipv4Ranges.length - 1;
-            ^^^^^
-    lib/core/china_ip_database.dart:241:21: Error: Undefined name '_ipv4Ranges'.
-          final range = _ipv4Ranges[mid];
-                        ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:244:21: Error: Undefined name '_ipv4Ranges'.
-          final range = _ipv4Ranges[mid];
-                        ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:270:10: Error: Undefined name '_isInitialized'.
-        if (!_isInitialized) return false;
-             ^^^^^^^^^^^^^^
-    lib/core/china_ip_database.dart:272:25: Error: Undefined name '_ipv6Ranges'.
-        for (final range in _ipv6Ranges) {
-                            ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:274:25: Error: Undefined name '_ipv6Ranges'.
-        for (final range in _ipv6Ranges) {
-                            ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:342:17: Error: Undefined name '_ipv4Ranges'.
-            'ipv4': _ipv4Ranges.map((r) => [r.start, r.end]).toList(),
-                    ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:343:17: Error: Undefined name '_ipv6Ranges'.
-            'ipv6': _ipv6Ranges.map((r) => [
-                    ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:359:17: Error: Undefined name '_ipv4Ranges'.
-            'ipv4': _ipv4Ranges.map((r) => [r.start, r.end]).toList(),
-                    ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:360:17: Error: Undefined name '_ipv6Ranges'.
-            'ipv6': _ipv6Ranges.map((r) => [
-                    ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:383:7: Error: Setter not found: '_ipv4Ranges'.
-          _ipv4Ranges = (cache['ipv4'] as List)
-          ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:388:32: Error: Too many positional arguments: 0 allowed, but 2 found.
-    Try removing the extra positional arguments.
-              .map((r) => IpRangeV6(
-                                   ^
-    lib/core/china_ip_database.dart:23:7: Context: The class 'IpRangeV6' has a constructor that takes no arguments.
-    class IpRangeV6 {
-          ^
-    lib/core/china_ip_database.dart:387:7: Error: Setter not found: '_ipv6Ranges'.
-          _ipv6Ranges = (cache['ipv6'] as List)
-          ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:394:7: Error: Setter not found: '_isInitialized'.
-          _isInitialized = true;
-          ^^^^^^^^^^^^^^
-    lib/core/china_ip_database.dart:409:7: Error: Setter not found: '_ipv4Ranges'.
-          _ipv4Ranges = (cache['ipv4'] as List)
-          ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:414:32: Error: Too many positional arguments: 0 allowed, but 2 found.
-    Try removing the extra positional arguments.
-              .map((r) => IpRangeV6(
-                                   ^
-    lib/core/china_ip_database.dart:23:7: Context: The class 'IpRangeV6' has a constructor that takes no arguments.
-    class IpRangeV6 {
-          ^
-    lib/core/china_ip_database.dart:413:7: Error: Setter not found: '_ipv6Ranges'.
-          _ipv6Ranges = (cache['ipv6'] as List)
-          ^^^^^^^^^^^
-    lib/core/china_ip_database.dart:420:7: Error: Setter not found: '_isInitialized'.
-          _isInitialized = true;
-          ^^^^^^^^^^^^^^
-    lib/core/china_ip_database.dart:269:3: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-      bool isChineseIPv6(String ip) {
-      ^
-    lib/core/china_ip_database.dart:267:3: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-      bool isChineseIPv6(String ip) {
-      ^
-    lib/core/china_ip_database.dart:224:3: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-      bool isChineseIPv4(String ip) {
-      ^
-    lib/core/china_ip_database.dart:222:8: Error: A non-null value must be returned since the return type 'bool' doesn't allow null.
-      bool isChineseIPv4(String ip) {
-           ^
-    lib/core/china_ip_database.dart:24:19: Error: Final field 'start' is not initialized.
-    Try to initialize the field in the declaration or in every constructor.
-      final Uint8List start;
-                      ^^^^^
-    lib/core/china_ip_database.dart:25:19: Error: Final field 'end' is not initialized.
-    Try to initialize the field in the declaration or in every constructor.
-      final Uint8List end;
-                      ^^^
+    Try correcting the name to the name of an existing getter, or defining a getter or field named 'CertificatePlatformChannel'.
+          final certificates = await CertificatePlatformChannel.generateCertificate(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
     Target kernel_snapshot_program failed: Exception
     Failed to package /Users/builder/clone.
     Command PhaseScriptExecution failed with a nonzero exit code

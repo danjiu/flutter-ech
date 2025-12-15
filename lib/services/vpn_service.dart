@@ -237,23 +237,36 @@ class VpnService {
     }
   }
 
-  void _updateVpnState(FlutterVpnState state) {
+  void _updateVpnState(dynamic state) {
+    // 处理FlutterVpnState枚举或字符串
     VpnConnectionState newState;
-    switch (state) {
-      case FlutterVpnState.disconnected:
+
+    // 尝试将state转换为枚举名称
+    String stateStr;
+    if (state is String) {
+      stateStr = state.toLowerCase();
+    } else if (state.toString().contains('.')) {
+      // 如果是枚举，提取名称部分
+      stateStr = state.toString().split('.').last.toLowerCase();
+    } else {
+      stateStr = state.toString().toLowerCase();
+    }
+
+    switch (stateStr) {
+      case 'disconnected':
         newState = VpnConnectionState.disconnected;
         break;
-      case FlutterVpnState.connecting:
+      case 'connecting':
         newState = VpnConnectionState.connecting;
         break;
-      case FlutterVpnState.connected:
+      case 'connected':
         newState = VpnConnectionState.connected;
         _startStatsTimer();
         break;
-      case FlutterVpnState.disconnecting:
+      case 'disconnecting':
         newState = VpnConnectionState.disconnecting;
         break;
-      case FlutterVpnState.error:
+      case 'error':
         newState = VpnConnectionState.error;
         break;
       default:

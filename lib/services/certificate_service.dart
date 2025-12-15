@@ -7,6 +7,7 @@ import 'package:flutter_vpn/flutter_vpn.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'certificate_platform_channel.dart';
 
 /// 证书管理服务
 /// 处理iOS VPN应用的证书安装和管理
