@@ -20,10 +20,12 @@ workflows:
     scripts:
       - name: Clean environment
         script: |
-          rm -rf build/
-          rm -rf ios/.symlinks/
-          rm -rf ios/Pods/
-          rm ios/Podfile.lock
+          # 安全清理环境，忽略不存在的文件
+          rm -rf build/ || true
+          rm -rf ios/.symlinks/ || true
+          rm -rf ios/Pods/ || true
+          rm -f ios/Podfile.lock || true
+          echo "✅ 环境清理完成"
 
       - name: Set up Flutter
         script: |
@@ -41,7 +43,6 @@ workflows:
           cd ios
           # 创建一个简化的Podfile，避免问题依赖
           cat > Podfile << 'EOF'
-          # Uncomment this line to define a global platform for your project
           platform :ios, '15.0'
 
           target 'Runner' do
@@ -53,20 +54,17 @@ workflows:
 
           post_install do |installer|
             installer.pods_project.targets.each do |target|
-              flutter_libraries = File.join(File.dirname(__FILE__), '..', '.symlinks', 'plugins', 'ios', '*.podspec')
-              Dir.glob(flutter_libraries).each do |library|
-                File.read(library).scan(/['"](.*\.framework['"])/) do |match|
-                  target.frameworks.reject! { |f| f == match[0] }
-                end
-              end
               target.build_configurations.each do |config|
                 config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+                config.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
                 config.build_settings['ENABLE_BITCODE'] = 'NO'
                 config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
               end
             end
           end
           EOF
+
+          echo "✅ Podfile创建完成"
 
       - name: Install Pods
         script: |
