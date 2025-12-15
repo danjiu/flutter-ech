@@ -7,7 +7,7 @@ workflows:
         XCODE_VERSION: 26.1
         # 强制设置为模拟器构建
         FLUTTER_TARGET_PLATFORM: ios-simulator
-        CODESIGNING_ALLOWED=NO
+        CODESIGNING_ALLOWED: NO
       xcode: latest
       cocoapods: default
     triggering:
@@ -156,3 +156,4 @@ workflows:
     artifacts:
       - build/ios/**/Runner.app
       - build/ios/Build/Products/Release-iphonesimulator/*.app
+
