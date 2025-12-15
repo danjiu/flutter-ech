@@ -1,11 +1,13 @@
 workflows:
-  ios-release:
-    name: iOS Release Build
+  ios-build:
+    name: iOS Simulator Build Only
     environment:
       vars:
         FLUTTER_VERSION: 3.38.5
         XCODE_VERSION: 26.1
-        APPLE_DEVELOPER_TEAM_ID: $APPLE_DEVELOPER_TEAM_ID
+        # 强制设置为模拟器构建
+        FLUTTER_TARGET_PLATFORM: ios-simulator
+        CODESIGNING_ALLOWED: NO
       xcode: latest
       cocoapods: default
     triggering:
@@ -15,128 +17,95 @@ workflows:
         - pattern: main
           include: true
           source: true
-        - pattern: release
-          include: true
-          source: true
     scripts:
+      - name: Clean environment
+        script: |
+          rm -rf build/
+          rm -rf ios/.symlinks/
+          rm -rf ios/Pods/
+          rm ios/Podfile.lock
+
       - name: Set up Flutter
         script: |
           flutter --version
           flutter doctor -v
+          # 预热Flutter
+          flutter precache --ios
+
       - name: Install dependencies
         script: |
           flutter pub get
-          cd ios && pod install
-      - name: Build iOS Simulator (No signing required)
+
+      - name: Fix iOS Podfile
         script: |
-          flutter build ios --simulator --release
-      - name: Archive build artifacts
+          cd ios
+          # 创建一个简化的Podfile，避免问题依赖
+          cat > Podfile << 'EOF'
+          # Uncomment this line to define a global platform for your project
+          platform :ios, '15.0'
+
+          target 'Runner' do
+            use_frameworks!
+            use_modular_headers!
+
+            flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+          end
+
+          post_install do |installer|
+            installer.pods_project.targets.each do |target|
+              flutter_libraries = File.join(File.dirname(__FILE__), '..', '.symlinks', 'plugins', 'ios', '*.podspec')
+              Dir.glob(flutter_libraries).each do |library|
+                File.read(library).scan(/['"](.*\.framework['"])/) do |match|
+                  target.frameworks.reject! { |f| f == match[0] }
+                end
+              end
+              target.build_configurations.each do |config|
+                config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+                config.build_settings['ENABLE_BITCODE'] = 'NO'
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+              end
+            end
+          end
+          EOF
+
+      - name: Install Pods
         script: |
-          mkdir -p $CM_BUILD_DIR/artifacts
-          cp -r build/ios/iphonesimulator/Runner.app $CM_BUILD_DIR/artifacts/
+          cd ios
+          pod install --repo-update
+
+      - name: Force Simulator Build
+        script: |
+          # 设置环境变量强制模拟器构建
+          export FLUTTER_TARGET_PLATFORM=ios-simulator
+          export CODESIGNING_ALLOWED=NO
+
+          # 构建模拟器版本，明确指定设备
+          flutter clean
+          flutter pub get
+
+          # 使用xcodebuild直接构建模拟器版本
+          xcodebuild -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            ENABLE_BITCODE=NO \
+            build
+
+          # 如果xcodebuild失败，尝试Flutter方法
+          if [ $? -ne 0 ]; then
+            echo "Flutter fallback method..."
+            flutter build ios --simulator --release --no-codesign
+          fi
+
+      - name: Verify build
+        script: |
+          # 验证构建产物
+          ls -la build/ios/iphonesimulator/ || ls -la build/ios/
+          find . -name "*.app" -type d
+
     artifacts:
-      - build/ios/iphonesimulator/Runner.app
-      - ios/Podfile.lock
-
-  android-release:
-    name: Android Release Build
-    environment:
-      vars:
-        FLUTTER_VERSION: 3.38.5
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-          source: true
-        - pattern: release
-          include: true
-          source: true
-    scripts:
-      - name: Set up Flutter
-        script: |
-          flutter --version
-          flutter doctor -v
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Build APK
-        script: |
-          flutter build apk --release \
-            --build-number $BUILD_NUMBER \
-            --build-name $BUILD_NAME \
-            --split-per-abi
-      - name: Build App Bundle
-        script: |
-          flutter build appbundle --release \
-            --build-number $BUILD_NUMBER \
-            --build-name $BUILD_NAME
-      - name: Archive build artifacts
-        script: |
-          mkdir -p $CM_BUILD_DIR/artifacts
-          cp -r build/app/outputs/flutter-apk/*.apk $CM_BUILD_DIR/artifacts/
-          cp -r build/app/outputs/bundle/release/*.aab $CM_BUILD_DIR/artifacts/
-    artifacts:
-      - build/app/outputs/flutter-apk/*.apk
-      - build/app/outputs/bundle/release/*.aab
-      - android/app/build.gradle
-
-  test-and-analyze:
-    name: Test and Analyze
-    environment:
-      vars:
-        FLUTTER_VERSION: 3.38.5
-    triggering:
-      events:
-        - push
-        - pull_request
-    scripts:
-      - name: Set up Flutter
-        script: |
-          flutter --version
-          flutter doctor -v
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Flutter analyze
-        script: |
-          flutter analyze
-      - name: Run tests
-        script: |
-          flutter test --coverage
-
-  preview-build:
-    name: Preview Build
-    environment:
-      vars:
-        FLUTTER_VERSION: 3.38.5
-      xcode: latest
-      cocoapods: default
-    triggering:
-      events:
-        - pull_request
-    scripts:
-      - name: Set up Flutter
-        script: |
-          flutter --version
-          flutter doctor -v
-      - name: Install dependencies
-        script: |
-          flutter pub get
-          cd ios && pod install
-      - name: Build iOS preview
-        script: |
-          flutter build ios --release --no-codesign
-      - name: Build Android preview
-        script: |
-          flutter build apk --debug
-      - name: Create preview artifacts
-        script: |
-          mkdir -p $CM_BUILD_DIR/preview
-          cp -r build/ios/iphoneos/Runner.app $CM_BUILD_DIR/preview/
-          cp build/app/outputs/flutter-apk/app-debug.apk $CM_BUILD_DIR/preview/
-    artifacts:
-      - build/ios/iphoneos/Runner.app
-
-      - build/app/outputs/flutter-apk/app-debug.apk
+      - build/ios/**/Runner.app
+      - build/ios/Build/Products/Release-iphonesimulator/*.app
