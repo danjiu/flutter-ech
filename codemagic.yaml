@@ -3,8 +3,8 @@ workflows:
     name: iOS Release Build
     environment:
       vars:
-        FLUTTER_VERSION: 3.24.0
-        XCODE_VERSION: 15.0
+        FLUTTER_VERSION: 3.38.5
+        XCODE_VERSION: 26.1
       xcode: latest
       cocoapods: default
     triggering:
@@ -41,7 +41,7 @@ workflows:
     name: Android Release Build
     environment:
       vars:
-        FLUTTER_VERSION: 3.24.0
+        FLUTTER_VERSION: 3.38.5
     triggering:
       events:
         - push
@@ -85,7 +85,7 @@ workflows:
     name: Test and Analyze
     environment:
       vars:
-        FLUTTER_VERSION: 3.24.0
+        FLUTTER_VERSION: 3.38.5
     triggering:
       events:
         - push
@@ -109,7 +109,7 @@ workflows:
     name: Preview Build
     environment:
       vars:
-        FLUTTER_VERSION: 3.24.0
+        FLUTTER_VERSION: 3.38.5
       xcode: latest
       cocoapods: default
     triggering:
@@ -137,4 +137,5 @@ workflows:
           cp build/app/outputs/flutter-apk/app-debug.apk $CM_BUILD_DIR/preview/
     artifacts:
       - build/ios/iphoneos/Runner.app
+
       - build/app/outputs/flutter-apk/app-debug.apk
