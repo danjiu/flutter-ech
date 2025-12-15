@@ -10,7 +10,7 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  install_all_flutter_pods File.dirname(File.realpath(__FILE__))
 end
 
 # Ensure that the generated pods directory is not included in version control
@@ -43,4 +43,5 @@ post_install do |installer|
       config.build_settings['ENABLE_BITCODE'] = 'NO'
     end
   end
+
 end
