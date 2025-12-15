@@ -15,7 +15,10 @@ class DNSParser {
     while (offset < data.length) {
       final record = _parseRecord(data, offset);
       if (record != null && record.type == 65) { // HTTPS记录
-        records.add(record);
+        final httpsRecord = parseHTTPSRecord(record);
+        if (httpsRecord != null) {
+          records.add(httpsRecord);
+        }
       }
 
       offset = record?.nextOffset ?? data.length;
