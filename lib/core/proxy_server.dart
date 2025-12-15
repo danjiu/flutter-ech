@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'ech_client.dart';
 import 'china_ip_database.dart';
+import 'socks5_server.dart';
 
 // 从models导入RoutingMode
 import '../models/server_config.dart';
@@ -25,8 +26,8 @@ class ECHProxyServer {
 
   bool _isRunning = false;
   DateTime? _startTime;
-  int64 _totalUploadBytes = 0;
-  int64 _totalDownloadBytes = 0;
+  int _totalUploadBytes = 0;
+  int _totalDownloadBytes = 0;
 
   // 统计流控制器
   final StreamController<Map<String, dynamic>> _statsController =
