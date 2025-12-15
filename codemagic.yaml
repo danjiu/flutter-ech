@@ -1,0 +1,140 @@
+workflows:
+  ios-release:
+    name: iOS Release Build
+    environment:
+      vars:
+        FLUTTER_VERSION: 3.24.0
+        XCODE_VERSION: 15.0
+      xcode: latest
+      cocoapods: default
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+        - pattern: release
+          include: true
+          source: true
+    scripts:
+      - name: Set up Flutter
+        script: |
+          flutter --version
+          flutter doctor -v
+      - name: Install dependencies
+        script: |
+          flutter pub get
+          cd ios && pod install
+      - name: Build IPA (Development)
+        script: |
+          flutter build ios --release --no-codesign
+      - name: Archive build artifacts
+        script: |
+          mkdir -p $CM_BUILD_DIR/artifacts
+          cp -r build/ios/iphoneos/Runner.app $CM_BUILD_DIR/artifacts/
+    artifacts:
+      - build/ios/iphoneos/Runner.app
+      - ios/Podfile.lock
+
+  android-release:
+    name: Android Release Build
+    environment:
+      vars:
+        FLUTTER_VERSION: 3.24.0
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+        - pattern: release
+          include: true
+          source: true
+    scripts:
+      - name: Set up Flutter
+        script: |
+          flutter --version
+          flutter doctor -v
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release \
+            --build-number $BUILD_NUMBER \
+            --build-name $BUILD_NAME \
+            --split-per-abi
+      - name: Build App Bundle
+        script: |
+          flutter build appbundle --release \
+            --build-number $BUILD_NUMBER \
+            --build-name $BUILD_NAME
+      - name: Archive build artifacts
+        script: |
+          mkdir -p $CM_BUILD_DIR/artifacts
+          cp -r build/app/outputs/flutter-apk/*.apk $CM_BUILD_DIR/artifacts/
+          cp -r build/app/outputs/bundle/release/*.aab $CM_BUILD_DIR/artifacts/
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+      - build/app/outputs/bundle/release/*.aab
+      - android/app/build.gradle
+
+  test-and-analyze:
+    name: Test and Analyze
+    environment:
+      vars:
+        FLUTTER_VERSION: 3.24.0
+    triggering:
+      events:
+        - push
+        - pull_request
+    scripts:
+      - name: Set up Flutter
+        script: |
+          flutter --version
+          flutter doctor -v
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Flutter analyze
+        script: |
+          flutter analyze
+      - name: Run tests
+        script: |
+          flutter test --coverage
+
+  preview-build:
+    name: Preview Build
+    environment:
+      vars:
+        FLUTTER_VERSION: 3.24.0
+      xcode: latest
+      cocoapods: default
+    triggering:
+      events:
+        - pull_request
+    scripts:
+      - name: Set up Flutter
+        script: |
+          flutter --version
+          flutter doctor -v
+      - name: Install dependencies
+        script: |
+          flutter pub get
+          cd ios && pod install
+      - name: Build iOS preview
+        script: |
+          flutter build ios --release --no-codesign
+      - name: Build Android preview
+        script: |
+          flutter build apk --debug
+      - name: Create preview artifacts
+        script: |
+          mkdir -p $CM_BUILD_DIR/preview
+          cp -r build/ios/iphoneos/Runner.app $CM_BUILD_DIR/preview/
+          cp build/app/outputs/flutter-apk/app-debug.apk $CM_BUILD_DIR/preview/
+    artifacts:
+      - build/ios/iphoneos/Runner.app
+      - build/app/outputs/flutter-apk/app-debug.apk

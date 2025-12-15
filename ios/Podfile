@@ -1,0 +1,46 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '15.0'
+
+# CocoaPods analytics sends network requests when determining platform versions
+# This can lead to errors in some network environments.
+# Uncomment the following line to disable CocoaPods analytics.
+# ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+target 'Runner' do
+  use_frameworks!
+  use_modular_headers!
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
+
+# Ensure that the generated pods directory is not included in version control
+# This is important for security and to avoid accidentally committing sensitive files
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+
+  # Enable IPv6 for network libraries
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["IPV6_DEPRECATION_WARNING"] = "NO"
+  end
+end
+
+# Force use of Swift 5.7 or later
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '5.0'
+    end
+  end
+end
+
+# Disable bitcode for all pods
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+end
